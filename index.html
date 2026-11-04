@@ -3,8 +3,8 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1">
-<meta name="theme-color" content="#090a0d">
-<meta name="description" content="MurKa™ resmi sanatçı sitesi. Özgün şarkılar, söz yazarlığı, besteler ve müzik prodüksiyonu.">
+<meta name="theme-color" content="#080a0d">
+<meta name="description" content="MurKa™ resmi sanatçı web sitesi. Özgün şarkılar, besteler ve müzik prodüksiyonları.">
 <title>MurKa™ | Official Artist</title>
 
 <style>
@@ -12,245 +12,402 @@
 html{scroll-behavior:smooth}
 body{
 margin:0;
-background:#090a0d;
+background:#080a0d;
 color:#f5f3ef;
 font-family:Arial,Helvetica,sans-serif;
 }
-.hero{
-min-height:100svh;
-display:flex;
-align-items:center;
-justify-content:center;
-padding:65px 20px;
-position:relative;
-overflow:hidden;
-background:
-radial-gradient(ellipse at 50% 20%,#292b35 0%,transparent 55%),
-linear-gradient(160deg,#111218,#070809 75%);
-}
-.hero:before{
-content:"";
-position:absolute;
-width:300px;
-height:300px;
-border:1px solid #b99a6540;
-border-radius:50%;
-top:13%;
-left:50%;
-transform:translateX(-50%);
-box-shadow:0 0 100px #b99a6510;
-}
-.hero-content{
-position:relative;
-text-align:center;
-width:100%;
-max-width:850px;
-}
-.label{
-color:#c5a778;
-font-size:11px;
-letter-spacing:5px;
-font-weight:bold;
-margin-bottom:35px;
-}
-.logo{
-font-size:clamp(75px,17vw,155px);
-font-weight:900;
-letter-spacing:-7px;
-margin:0;
-line-height:1;
-}
-.logo span{
-font-size:.25em;
-vertical-align:top;
-letter-spacing:0;
-color:#c5a778;
-}
-.line{
-width:65px;
-height:2px;
-background:#c5a778;
-margin:32px auto;
-}
-.roles{
-font-size:clamp(12px,3vw,16px);
-color:#b9b9bd;
-letter-spacing:2px;
-line-height:2;
-}
-.motto{
-font-family:Georgia,serif;
-font-size:clamp(25px,5vw,39px);
-font-style:italic;
-font-weight:normal;
-margin:55px 0 45px;
-}
-.scroll{
-font-size:11px;
-letter-spacing:3px;
-color:#89898e;
-text-decoration:none;
-border-bottom:1px solid #c5a778;
-padding-bottom:12px;
-}
-section.music{
-padding:85px 20px 100px;
-max-width:950px;
-margin:auto;
-text-align:center;
-}
-.section-label{
-color:#c5a778;
-letter-spacing:4px;
-font-size:11px;
-}
-h2{
-font-size:clamp(30px,7vw,48px);
-margin:18px 0;
-}
-.intro{
-color:#aaaab0;
-line-height:1.9;
-max-width:620px;
-margin:0 auto 45px;
-font-size:15px;
-}
-.platforms{
-display:grid;
-grid-template-columns:repeat(2,minmax(0,1fr));
-gap:13px;
-max-width:650px;
-margin:auto;
-}
-.platforms a{
+a{text-decoration:none;color:inherit}
+header{
+height:76px;
+padding:0 6%;
 display:flex;
 align-items:center;
 justify-content:space-between;
-padding:22px 18px;
-border:1px solid #35363d;
-border-radius:13px;
-background:linear-gradient(135deg,#191a20,#101115);
-color:#f4f4f4;
-text-decoration:none;
-font-size:15px;
+background:rgba(6,8,11,.96);
+border-bottom:1px solid #262626;
+position:sticky;
+top:0;
+z-index:20;
+}
+.logo{
+font-size:30px;
+font-weight:900;
+letter-spacing:-2px;
+}
+.logo sup{
+font-size:11px;
+color:#d6aa65;
+letter-spacing:0;
+}
+nav{
+display:flex;
+gap:30px;
+font-size:14px;
+}
+nav a:hover{color:#d6aa65}
+
+.hero{
+min-height:690px;
+padding:110px 20px 85px;
+display:flex;
+align-items:center;
+justify-content:center;
+text-align:center;
+background:
+linear-gradient(180deg,rgba(0,0,0,.42),#080a0d 95%),
+url('https://images.unsplash.com/photo-1598488035139-bdbb2231ce04?w=1600&q=85')
+center/cover no-repeat;
+}
+.hero-content{max-width:1000px;width:100%}
+.eyebrow{
+color:#d6aa65;
+font-size:13px;
+letter-spacing:8px;
+font-weight:600;
+}
+.hero h1{
+font-size:clamp(76px,15vw,150px);
+letter-spacing:-8px;
+line-height:1;
+margin:30px 0 12px;
+font-weight:900;
+font-style:italic;
+text-shadow:0 5px 35px #000;
+}
+.hero h1 sup{
+font-size:22px;
+letter-spacing:0;
+color:#d6aa65;
+vertical-align:top;
+}
+.roles{
+font-size:clamp(13px,2.6vw,22px);
+letter-spacing:2px;
+}
+.motto{
+font-family:Georgia,serif;
+font-style:italic;
+font-size:clamp(25px,5vw,40px);
+margin:42px 0;
+}
+.platforms{
+display:grid;
+grid-template-columns:repeat(6,1fr);
+gap:12px;
+margin-top:48px;
+}
+.platform{
+background:rgba(8,10,13,.88);
+border:1px solid #414141;
+border-radius:17px;
+padding:18px 8px;
+display:flex;
+flex-direction:column;
+align-items:center;
+justify-content:center;
+gap:12px;
+font-size:13px;
 transition:.25s;
 }
-.platforms a span{
-color:#c5a778;
-font-size:20px;
+.platform:hover{
+border-color:#d6aa65;
+transform:translateY(-4px);
 }
-.platforms a:hover{
-border-color:#c5a778;
-transform:translateY(-3px);
+.icon{
+font-size:29px;
+font-weight:900;
+height:35px;
+display:flex;
+align-items:center;
+}
+.youtube{color:#ff3030}
+.spotify{color:#1ed760}
+.apple{color:#f5f5f5}
+.tiktok{color:#fff;text-shadow:-2px 0 #00f2ea,2px 0 #ff0050}
+.instagram{color:#e950a2}
+.amazon{color:#e8e8e8}
+
+section.content{
+max-width:1200px;
+margin:auto;
+padding:85px 24px;
+}
+.section-title{
+text-align:center;
+font-size:clamp(32px,5vw,47px);
+margin:0 0 45px;
+}
+.section-title:after{
+content:"";
+display:block;
+width:95px;
+height:2px;
+background:#d6aa65;
+margin:20px auto;
+}
+.albums{
+display:grid;
+grid-template-columns:repeat(5,minmax(0,1fr));
+gap:18px;
+}
+.album{text-align:center}
+.cover{
+aspect-ratio:1;
+border-radius:13px;
+border:1px solid #555;
+display:flex;
+flex-direction:column;
+align-items:center;
+justify-content:center;
+position:relative;
+overflow:hidden;
+padding:12px;
+box-shadow:0 12px 30px #0008;
+}
+.cover strong{
+font-family:Georgia,serif;
+font-style:italic;
+font-size:clamp(18px,2.5vw,28px);
+text-shadow:0 3px 12px #000;
+}
+.cover .play{
+position:absolute;
+right:12px;
+bottom:12px;
+width:35px;
+height:35px;
+border:2px solid #fff;
+border-radius:50%;
+display:grid;
+place-items:center;
+background:#0009;
+}
+.album p{font-weight:600}
+.c1{background:linear-gradient(140deg,#29221c,#090909 60%,#60462c)}
+.c2{background:linear-gradient(145deg,#163345,#080d15 65%,#5d2b20)}
+.c3{background:linear-gradient(145deg,#261820,#07090c 65%,#782e36)}
+.c4{background:linear-gradient(145deg,#31214b,#a3486c 55%,#e5a15f)}
+.c5{background:linear-gradient(145deg,#253047,#a25b42 65%,#d99b66)}
+
+.center{text-align:center}
+.gold-button{
+display:inline-block;
+margin-top:35px;
+border:2px solid #d6aa65;
+border-radius:40px;
+padding:15px 35px;
+font-weight:600;
+}
+.gold-button:hover{
+background:#d6aa65;
+color:#080a0d;
 }
 .about{
-border-top:1px solid #292a30;
-padding:70px 20px;
-text-align:center;
-background:#101115;
+background:linear-gradient(135deg,#15171a,#090a0d);
+border-top:1px solid #292929;
+border-bottom:1px solid #292929;
 }
+.about-inner{
+max-width:1100px;
+margin:auto;
+padding:80px 24px;
+display:grid;
+grid-template-columns:1fr 1fr;
+gap:55px;
+align-items:center;
+}
+.vinyl{
+height:340px;
+border-radius:16px;
+background:
+radial-gradient(circle at center,#c69a57 0 4%,#101010 5% 9%,#444 10%,#080808 12% 32%,#292929 33%,#080808 35% 50%,transparent 51%),
+linear-gradient(135deg,#18191b,#41301f,#090909);
+box-shadow:0 15px 40px #0009;
+}
+.about h2{font-size:40px}
 .about p{
-max-width:650px;
-margin:20px auto;
-color:#b9b9bd;
-line-height:2;
-font-size:15px;
+font-size:17px;
+color:#bdbdbd;
+line-height:1.9;
 }
-footer{
+.contact{
 text-align:center;
-padding:35px 15px;
-color:#77777e;
-font-size:12px;
-border-top:1px solid #292a30;
+padding:75px 20px;
 }
-@media(max-width:480px){
-.logo{letter-spacing:-5px}
-.platforms{gap:10px}
-.platforms a{padding:19px 13px;font-size:13px}
-.hero{padding:55px 15px}
+.contact p{color:#bdbdbd}
+footer{
+border-top:1px solid #333;
+padding:35px 20px;
+text-align:center;
+color:#929292;
+font-size:13px;
+}
+footer .logo{color:#fff;margin-bottom:15px}
+
+@media(max-width:850px){
+nav{gap:13px;font-size:12px}
+.platforms{grid-template-columns:repeat(3,1fr)}
+.albums{grid-template-columns:repeat(3,1fr)}
+.about-inner{grid-template-columns:1fr}
+.vinyl{height:270px}
+.hero{min-height:700px}
+}
+@media(max-width:520px){
+header{height:65px;padding:0 15px}
+.logo{font-size:24px}
+nav{gap:10px;font-size:11px}
+nav a:last-child{display:none}
+.hero{padding:80px 15px 65px;min-height:650px}
+.hero h1{letter-spacing:-5px}
+.eyebrow{letter-spacing:5px}
+.roles{letter-spacing:0}
+.platforms{gap:9px}
+.platform{font-size:11px;padding:14px 4px}
+.albums{grid-template-columns:repeat(2,minmax(0,1fr))}
+section.content{padding:65px 18px}
 }
 </style>
 </head>
 
 <body>
 
-<header class="hero">
-<div class="hero-content">
-
-<div class="label">OFFICIAL ARTIST</div>
-
-<h1 class="logo">MurKa<span>™</span></h1>
-
-<div class="line"></div>
-
-<div class="roles">
-SONGWRITER &nbsp;•&nbsp; COMPOSER &nbsp;•&nbsp; PRODUCER
-</div>
-
-<h2 class="motto">“Söz biter, eser kalır.”</h2>
-
-<a class="scroll" href="#music">MÜZİĞİ KEŞFET ↓</a>
-
-</div>
+<header>
+<a href="#home" class="logo">MurKa<sup>™</sup></a>
+<nav>
+<a href="#home">Ana Sayfa</a>
+<a href="#eserler">Eserlerim</a>
+<a href="#hakkimda">Hakkımda</a>
+<a href="#iletisim">İletişim</a>
+</nav>
 </header>
 
-<section class="music" id="music">
+<main>
 
-<div class="section-label">MURKA MUSIC</div>
-
-<h2>Müziğin İzinde</h2>
-
-<p class="intro">
-Özgün şarkılar, besteler ve prodüksiyonlar.
-MurKa'nın müzik dünyasını keşfet.
-</p>
+<section class="hero" id="home">
+<div class="hero-content">
+<div class="eyebrow">OFFICIAL ARTIST</div>
+<h1>MurKa<sup>™</sup></h1>
+<div class="roles">Songwriter • Composer • Producer</div>
+<p class="motto">“Söz biter, eser kalır.”</p>
 
 <div class="platforms">
 
-<a href="https://youtube.com/@murka_music" target="_blank" rel="noopener noreferrer">
-YouTube <span>↗</span>
+<a class="platform" href="https://youtube.com/@murka_music" target="_blank" rel="noopener">
+<span class="icon youtube">▶</span>YouTube
 </a>
 
-<a href="https://open.spotify.com/artist/1YpXnmhcBBkVKLxE9Kyntt" target="_blank" rel="noopener noreferrer">
-Spotify <span>↗</span>
+<a class="platform" href="https://open.spotify.com/search/MurKa" target="_blank" rel="noopener">
+<span class="icon spotify">◉</span>Spotify
 </a>
 
-<a href="https://music.apple.com/de/artist/murka/1862992601" target="_blank" rel="noopener noreferrer">
-Apple Music <span>↗</span>
+<a class="platform" href="https://music.apple.com/de/search?term=MurKa" target="_blank" rel="noopener">
+<span class="icon apple">♫</span>Apple Music
 </a>
 
-<a href="https://www.tiktok.com/@murka.music" target="_blank" rel="noopener noreferrer">
-TikTok <span>↗</span>
+<a class="platform" href="https://www.tiktok.com/@murka.music" target="_blank" rel="noopener">
+<span class="icon tiktok">♪</span>TikTok
 </a>
 
-<a href="https://www.instagram.com/murka.music/" target="_blank" rel="noopener noreferrer">
-Instagram <span>↗</span>
+<a class="platform" href="https://www.instagram.com/murka.music/" target="_blank" rel="noopener">
+<span class="icon instagram">◎</span>Instagram
 </a>
 
-<a href="https://music.amazon.de/artists/B082J87KZ8/murka" target="_blank" rel="noopener noreferrer">
-Amazon Music <span>↗</span>
+<a class="platform" href="https://music.amazon.de/artists/B082J87KZ8/murka" target="_blank" rel="noopener">
+<span class="icon amazon">music</span>Amazon Music
 </a>
 
 </div>
+</div>
 </section>
 
-<section class="about">
+<section class="content" id="eserler">
+<h2 class="section-title">Eserlerim</h2>
 
-<div class="section-label">THE ARTIST</div>
+<div class="albums">
 
-<h2>MurKa™</h2>
+<a class="album" href="https://www.youtube.com/@murka_music" target="_blank" rel="noopener">
+<div class="cover c1">
+<strong>Bir Mesele</strong>
+<span class="play">▶</span>
+</div>
+<p>Bir Mesele</p>
+</a>
 
+<a class="album" href="https://www.youtube.com/@murka_music" target="_blank" rel="noopener">
+<div class="cover c2">
+<strong>Eylülce</strong>
+<span class="play">▶</span>
+</div>
+<p>Eylülce</p>
+</a>
+
+<a class="album" href="https://www.youtube.com/@murka_music" target="_blank" rel="noopener">
+<div class="cover c3">
+<strong>Aksi Gönül</strong>
+<span class="play">▶</span>
+</div>
+<p>Aksi Gönül</p>
+</a>
+
+<a class="album" href="https://www.youtube.com/@murka_music" target="_blank" rel="noopener">
+<div class="cover c4">
+<strong>Can Yanım</strong>
+<span class="play">▶</span>
+</div>
+<p>Can Yanım</p>
+</a>
+
+<a class="album" href="https://www.youtube.com/@murka_music" target="_blank" rel="noopener">
+<div class="cover c5">
+<strong>Fermanım Var</strong>
+<span class="play">▶</span>
+</div>
+<p>Fermanım Var</p>
+</a>
+
+</div>
+
+<div class="center">
+<a class="gold-button" href="https://www.youtube.com/@murka_music/videos" target="_blank" rel="noopener">
+♫ Tüm Eserlerim →
+</a>
+</div>
+</section>
+
+<section class="about" id="hakkimda">
+<div class="about-inner">
+<div class="vinyl" aria-label="Plak görseli"></div>
+<div>
+<div class="eyebrow">THE ARTIST</div>
+<h2>Hakkımda</h2>
 <p>
-MurKa; özgün söz, beste ve prodüksiyon çalışmalarını
-bir araya getiren bağımsız bir müzik projesidir.
-Her eser kendi hikâyesini, duygusunu ve müzikal
-kimliğini taşır.
+MurKa™, söz yazarı, besteci ve prodüktör olarak
+kendi eserlerini üreten bağımsız bir müzik sanatçısıdır.
 </p>
-
+<p>
+Türkçe müziğin duygusunu modern sound'larla
+harmanlayarak özgün eserler ortaya koyar.
+Her şarkı kendi hikâyesini taşır.
+</p>
+</div>
+</div>
 </section>
+
+<section class="contact" id="iletisim">
+<div class="eyebrow">CONTACT</div>
+<h2>İletişim</h2>
+<p>İş birlikleri ve müzik projeleri için:</p>
+<a class="gold-button" href="mailto:mki35@mail.de">
+✉ E-posta Gönder
+</a>
+</section>
+
+</main>
 
 <footer>
-© 2026 MurKa™ — Tüm hakları saklıdır.
+<div class="logo">MurKa<sup>™</sup></div>
+<p>“Söz biter, eser kalır.”</p>
+<p>© 2026 MurKa. Tüm hakları saklıdır.</p>
 </footer>
 
 </body>
