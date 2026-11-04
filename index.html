@@ -1,34 +1,257 @@
-<!doctype html>
+<!DOCTYPE html>
 <html lang="tr">
 <head>
-<meta charset="utf-8">
-<meta name="viewport" content="width=device-width,initial-scale=1">
-<title>MurKa | Official Artist</title>
-<meta name="description" content="MurKa™ official website. Songwriter, Composer, Producer. Özgün şarkılar, beste ve prodüksiyon.">
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<meta name="theme-color" content="#090a0d">
+<meta name="description" content="MurKa™ resmi sanatçı sitesi. Özgün şarkılar, söz yazarlığı, besteler ve müzik prodüksiyonu.">
+<title>MurKa™ | Official Artist</title>
+
 <style>
-*{box-sizing:border-box}body{margin:0;background:#090909;color:#f5f2ea;font-family:Arial,sans-serif}
-main{min-height:100vh;display:grid;place-items:center;padding:28px}
-.card{width:min(900px,100%);text-align:center;padding:72px 24px;border:1px solid #292929;border-radius:24px;background:linear-gradient(145deg,#111,#080808)}
-.brand{font-size:clamp(54px,12vw,110px);font-weight:800;letter-spacing:-4px;margin:0}.brand span{color:#c7a35b}
-.eyebrow{letter-spacing:5px;font-size:12px;color:#c7a35b;margin-bottom:18px}
-.roles{font-size:16px;color:#bbb;margin:16px 0 32px}.motto{font-family:Georgia,serif;font-size:clamp(22px,5vw,36px);margin:0 0 42px}
-.links{display:flex;flex-wrap:wrap;justify-content:center;gap:10px}
-a{color:#eee;text-decoration:none;border:1px solid #444;border-radius:999px;padding:12px 18px}a:hover{border-color:#c7a35b;color:#c7a35b}
-footer{margin-top:55px;color:#777;font-size:12px}
+*{box-sizing:border-box}
+html{scroll-behavior:smooth}
+body{
+margin:0;
+background:#090a0d;
+color:#f5f3ef;
+font-family:Arial,Helvetica,sans-serif;
+}
+.hero{
+min-height:100svh;
+display:flex;
+align-items:center;
+justify-content:center;
+padding:65px 20px;
+position:relative;
+overflow:hidden;
+background:
+radial-gradient(ellipse at 50% 20%,#292b35 0%,transparent 55%),
+linear-gradient(160deg,#111218,#070809 75%);
+}
+.hero:before{
+content:"";
+position:absolute;
+width:300px;
+height:300px;
+border:1px solid #b99a6540;
+border-radius:50%;
+top:13%;
+left:50%;
+transform:translateX(-50%);
+box-shadow:0 0 100px #b99a6510;
+}
+.hero-content{
+position:relative;
+text-align:center;
+width:100%;
+max-width:850px;
+}
+.label{
+color:#c5a778;
+font-size:11px;
+letter-spacing:5px;
+font-weight:bold;
+margin-bottom:35px;
+}
+.logo{
+font-size:clamp(75px,17vw,155px);
+font-weight:900;
+letter-spacing:-7px;
+margin:0;
+line-height:1;
+}
+.logo span{
+font-size:.25em;
+vertical-align:top;
+letter-spacing:0;
+color:#c5a778;
+}
+.line{
+width:65px;
+height:2px;
+background:#c5a778;
+margin:32px auto;
+}
+.roles{
+font-size:clamp(12px,3vw,16px);
+color:#b9b9bd;
+letter-spacing:2px;
+line-height:2;
+}
+.motto{
+font-family:Georgia,serif;
+font-size:clamp(25px,5vw,39px);
+font-style:italic;
+font-weight:normal;
+margin:55px 0 45px;
+}
+.scroll{
+font-size:11px;
+letter-spacing:3px;
+color:#89898e;
+text-decoration:none;
+border-bottom:1px solid #c5a778;
+padding-bottom:12px;
+}
+section.music{
+padding:85px 20px 100px;
+max-width:950px;
+margin:auto;
+text-align:center;
+}
+.section-label{
+color:#c5a778;
+letter-spacing:4px;
+font-size:11px;
+}
+h2{
+font-size:clamp(30px,7vw,48px);
+margin:18px 0;
+}
+.intro{
+color:#aaaab0;
+line-height:1.9;
+max-width:620px;
+margin:0 auto 45px;
+font-size:15px;
+}
+.platforms{
+display:grid;
+grid-template-columns:repeat(2,minmax(0,1fr));
+gap:13px;
+max-width:650px;
+margin:auto;
+}
+.platforms a{
+display:flex;
+align-items:center;
+justify-content:space-between;
+padding:22px 18px;
+border:1px solid #35363d;
+border-radius:13px;
+background:linear-gradient(135deg,#191a20,#101115);
+color:#f4f4f4;
+text-decoration:none;
+font-size:15px;
+transition:.25s;
+}
+.platforms a span{
+color:#c5a778;
+font-size:20px;
+}
+.platforms a:hover{
+border-color:#c5a778;
+transform:translateY(-3px);
+}
+.about{
+border-top:1px solid #292a30;
+padding:70px 20px;
+text-align:center;
+background:#101115;
+}
+.about p{
+max-width:650px;
+margin:20px auto;
+color:#b9b9bd;
+line-height:2;
+font-size:15px;
+}
+footer{
+text-align:center;
+padding:35px 15px;
+color:#77777e;
+font-size:12px;
+border-top:1px solid #292a30;
+}
+@media(max-width:480px){
+.logo{letter-spacing:-5px}
+.platforms{gap:10px}
+.platforms a{padding:19px 13px;font-size:13px}
+.hero{padding:55px 15px}
+}
 </style>
 </head>
-<body><main><section class="card">
-<div class="eyebrow">OFFICIAL ARTIST</div>
-<h1 class="brand">MurKa<span>™</span></h1>
-<div class="roles">Songwriter • Composer • Producer</div>
-<p class="motto">“Söz biter, eser kalır.”</p>
-<div class="links">
-<a href="https://youtube.com/@murka_music">YouTube</a>
-<a href="https://open.spotify.com/artist/1YpXnmhcBBkVKLxE9Kyntt">Spotify</a>
-<a href="https://music.apple.com/de/artist/murka/1862992601">Apple Music</a>
-<a href="https://www.tiktok.com/@murka.music">TikTok</a>
-<a href="https://www.instagram.com/murka.music/">Instagram</a>
-<a href="https://music.amazon.de/artists/B082J87KZ8/murka">Amazon Music</a>
+
+<body>
+
+<header class="hero">
+<div class="hero-content">
+
+<div class="label">OFFICIAL ARTIST</div>
+
+<h1 class="logo">MurKa<span>™</span></h1>
+
+<div class="line"></div>
+
+<div class="roles">
+SONGWRITER &nbsp;•&nbsp; COMPOSER &nbsp;•&nbsp; PRODUCER
 </div>
-<footer>© 2026 MurKa. Tüm hakları saklıdır.</footer>
-</section></main></body></html>
+
+<h2 class="motto">“Söz biter, eser kalır.”</h2>
+
+<a class="scroll" href="#music">MÜZİĞİ KEŞFET ↓</a>
+
+</div>
+</header>
+
+<section class="music" id="music">
+
+<div class="section-label">MURKA MUSIC</div>
+
+<h2>Müziğin İzinde</h2>
+
+<p class="intro">
+Özgün şarkılar, besteler ve prodüksiyonlar.
+MurKa'nın müzik dünyasını keşfet.
+</p>
+
+<div class="platforms">
+
+<a href="https://youtube.com/@murka_music" target="_blank" rel="noopener noreferrer">
+YouTube <span>↗</span>
+</a>
+
+<a href="https://open.spotify.com/artist/1YpXnmhcBBkVKLxE9Kyntt" target="_blank" rel="noopener noreferrer">
+Spotify <span>↗</span>
+</a>
+
+<a href="https://music.apple.com/de/artist/murka/1862992601" target="_blank" rel="noopener noreferrer">
+Apple Music <span>↗</span>
+</a>
+
+<a href="https://www.tiktok.com/@murka.music" target="_blank" rel="noopener noreferrer">
+TikTok <span>↗</span>
+</a>
+
+<a href="https://www.instagram.com/murka.music/" target="_blank" rel="noopener noreferrer">
+Instagram <span>↗</span>
+</a>
+
+<a href="https://music.amazon.de/artists/B082J87KZ8/murka" target="_blank" rel="noopener noreferrer">
+Amazon Music <span>↗</span>
+</a>
+
+</div>
+</section>
+
+<section class="about">
+
+<div class="section-label">THE ARTIST</div>
+
+<h2>MurKa™</h2>
+
+<p>
+MurKa; özgün söz, beste ve prodüksiyon çalışmalarını
+bir araya getiren bağımsız bir müzik projesidir.
+Her eser kendi hikâyesini, duygusunu ve müzikal
+kimliğini taşır.
+</p>
+
+</section>
+
+<footer>
+© 2026 MurKa™ — Tüm hakları saklıdır.
+</footer>
+
+</body>
+</html>
