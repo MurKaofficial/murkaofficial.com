@@ -2,135 +2,170 @@
 <html lang="tr">
 <head>
 <meta charset="UTF-8">
-<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<meta name="viewport" content="width=device-width, initial-scale=1">
 <meta name="theme-color" content="#080b0e">
-<title>MurKa™ | Resmî Sanatçı</title>
 <meta name="description" content="MurKa™ resmî sanatçı sitesi. Söz yazarı, besteci ve prodüktör. Söz biter, eser kalır.">
+<title>MurKa™ | Resmî Sanatçı</title>
 
 <style>
 :root{
   --bg:#080b0e;
-  --gold:#d5a253;
-  --white:#f8f8f8;
+  --gold:#d4a154;
+  --text:#f7f7f7;
   --muted:#bfc0c3;
 }
+
 *{box-sizing:border-box}
+
 html{scroll-behavior:smooth}
+
 body{
   margin:0;
   background:var(--bg);
-  color:var(--white);
+  color:var(--text);
   font-family:Arial,Helvetica,sans-serif;
+  overflow-x:hidden;
 }
+
 a{color:inherit;text-decoration:none}
 button{font:inherit}
+svg{display:block}
 
-/* ÜST MENÜ */
 header{
   height:78px;
   padding:0 5%;
   display:flex;
-  justify-content:space-between;
   align-items:center;
+  justify-content:space-between;
   position:sticky;
   top:0;
   z-index:100;
-  background:#07090ced;
+  background:rgba(5,8,11,.97);
   border-bottom:1px solid #ffffff20;
   backdrop-filter:blur(14px);
 }
+
 .logo{
-  font-size:35px;
+  font-size:36px;
   font-weight:900;
   letter-spacing:-2px;
 }
+
 sup{
   color:var(--gold);
   font-size:.28em;
   vertical-align:top;
   letter-spacing:0;
 }
+
 nav{
   display:flex;
   align-items:center;
   gap:38px;
 }
+
 nav a{
   padding:12px 0;
   font-size:16px;
+  transition:color .25s;
 }
+
 nav a:hover{color:var(--gold)}
 nav a:first-child{border-bottom:2px solid var(--gold)}
+
 .menu-btn{
   display:none;
   background:none;
   border:0;
   color:white;
-  font-size:30px;
+  font-size:32px;
   cursor:pointer;
 }
 
-/* ANA GÖRSEL */
+/* ANA BÖLÜM */
+
 .hero{
-  position:relative;
   min-height:650px;
-  padding:65px 4% 55px;
+  position:relative;
+  isolation:isolate;
   display:flex;
   flex-direction:column;
   justify-content:center;
   align-items:center;
   text-align:center;
-  isolation:isolate;
+  padding:60px 4% 55px;
   overflow:hidden;
 }
-.hero::before{
+
+.studio-bg{
+  position:absolute;
+  inset:0;
+  z-index:-3;
+  overflow:hidden;
+  background:
+    radial-gradient(ellipse at 5% 40%,#143248 0%,transparent 43%),
+    radial-gradient(ellipse at 100% 38%,#63391d 0%,transparent 43%),
+    linear-gradient(110deg,#071019,#090b0d 55%,#24170e);
+}
+
+.studio-bg::after{
   content:"";
   position:absolute;
   inset:0;
-  z-index:-2;
-  background:
-    linear-gradient(
-      180deg,
-      #0007 0%,
-      #0005 45%,
-      #080b0e 100%
-    ),
-    url("https://images.unsplash.com/photo-1493225457124-a3eb161ffa5f?auto=format&fit=crop&w=1800&q=85")
-    center/cover no-repeat;
+  background:linear-gradient(
+    180deg,
+    rgba(0,0,0,.25),
+    rgba(0,0,0,.15) 50%,
+    #080b0e 100%
+  );
 }
+
+.studio-art{
+  position:absolute;
+  width:100%;
+  height:100%;
+  left:0;
+  top:0;
+  object-fit:cover;
+  opacity:.9;
+}
+
 .hero::after{
   content:"";
   position:absolute;
-  inset:-30%;
   z-index:-1;
+  inset:-50%;
   pointer-events:none;
-  background:radial-gradient(
-    circle,
-    #d5a25322,
-    transparent 45%
-  );
+  background:radial-gradient(circle,#d4a15415,transparent 42%);
   animation:ambient 12s ease-in-out infinite alternate;
 }
+
 @keyframes ambient{
-  from{transform:translate(-15%,-5%)}
-  to{transform:translate(15%,8%)}
+  from{transform:translate(-12%,-5%)}
+  to{transform:translate(12%,8%)}
 }
+
 .artist-label{
   font-size:15px;
-  letter-spacing:8px;
+  letter-spacing:9px;
+  text-shadow:0 2px 10px black;
 }
+
 .hero h1{
   font-size:clamp(78px,13vw,150px);
   font-style:italic;
   font-weight:900;
   letter-spacing:-7px;
   line-height:1;
-  margin:20px 0 12px;
-  text-shadow:0 6px 30px #000;
+  margin:22px 0 12px;
+  text-shadow:0 7px 35px #000;
 }
+
 .roles{
   font-size:clamp(15px,2.4vw,24px);
+  text-shadow:0 3px 15px black;
 }
+
 .light-line{
   width:230px;
   height:2px;
@@ -139,31 +174,36 @@ nav a:first-child{border-bottom:2px solid var(--gold)}
     90deg,
     transparent,
     var(--gold),
-    #fff2c7,
+    #fff3d0,
     var(--gold),
     transparent
   );
-  box-shadow:0 0 20px var(--gold);
-  animation:glow 4s infinite alternate;
+  box-shadow:0 0 22px var(--gold);
+  animation:glow 4s ease-in-out infinite alternate;
 }
+
 @keyframes glow{
   to{opacity:.55;box-shadow:0 0 35px var(--gold)}
 }
+
 .slogan{
   font-family:Georgia,serif;
-  font-size:clamp(27px,4vw,42px);
   font-style:italic;
-  margin:0 0 42px;
-  text-shadow:0 4px 18px #000;
+  font-size:clamp(27px,4vw,42px);
+  letter-spacing:1px;
+  margin:0 0 43px;
+  text-shadow:0 4px 20px black;
 }
 
-/* MÜZİK PLATFORMLARI */
+/* PLATFORMLAR */
+
 .platforms{
   display:grid;
   grid-template-columns:repeat(6,minmax(0,1fr));
   gap:12px;
   width:min(1150px,100%);
 }
+
 .platform{
   min-height:105px;
   display:flex;
@@ -171,41 +211,49 @@ nav a:first-child{border-bottom:2px solid var(--gold)}
   align-items:center;
   justify-content:center;
   gap:10px;
+  background:rgba(4,7,10,.9);
   border:1px solid #ffffff35;
   border-radius:16px;
-  background:#05080be8;
   transition:.3s;
 }
+
 .platform:hover{
   transform:translateY(-5px);
   border-color:var(--gold);
+  box-shadow:0 12px 30px #0009;
 }
+
 .platform svg{width:35px;height:35px}
 .platform span{font-size:14px;font-weight:600}
+
 .yt{color:#ff0033}
 .sp{color:#1ed760}
-.ap{color:#fff}
+.ap{color:white}
 .tt{
-  color:#fff;
+  color:white;
   filter:drop-shadow(-2px 0 #25f4ee)
          drop-shadow(2px 0 #fe2c55);
 }
-.ig{color:#e94ca0}
-.am{color:#fff}
+.ig{color:#e64b9b}
+.am{color:white}
 
 /* ESERLER */
+
 .section{padding:70px 4%}
+
 .section-title{
   display:flex;
-  align-items:center;
   justify-content:center;
+  align-items:center;
   gap:25px;
   margin-bottom:42px;
 }
+
 .section-title h2{
-  font-size:clamp(33px,5vw,48px);
   margin:0;
+  font-size:clamp(33px,5vw,48px);
 }
+
 .section-title::before,
 .section-title::after{
   content:"";
@@ -213,7 +261,9 @@ nav a:first-child{border-bottom:2px solid var(--gold)}
   height:2px;
   background:linear-gradient(90deg,transparent,var(--gold));
 }
+
 .section-title::after{transform:rotate(180deg)}
+
 .songs{
   max-width:1200px;
   margin:auto;
@@ -221,45 +271,50 @@ nav a:first-child{border-bottom:2px solid var(--gold)}
   grid-template-columns:repeat(5,minmax(0,1fr));
   gap:20px;
 }
+
 .song{text-align:center;min-width:0}
+
 .cover{
-  aspect-ratio:1;
   position:relative;
-  overflow:hidden;
+  aspect-ratio:1;
   border-radius:13px;
+  overflow:hidden;
   border:1px solid #ffffff40;
-  background-size:cover;
-  background-position:center;
-  box-shadow:0 8px 25px #0009;
+  box-shadow:0 8px 28px #0009;
   transition:.3s;
 }
+
+.song:hover .cover{
+  transform:translateY(-6px);
+  border-color:var(--gold);
+}
+
 .cover::after{
   content:"";
   position:absolute;
   inset:0;
   background:linear-gradient(0deg,#000a,transparent 65%);
+  pointer-events:none;
 }
-.song:hover .cover{
-  transform:translateY(-5px);
-  border-color:var(--gold);
-}
+
 .cover-title{
   position:absolute;
-  top:15%;
+  z-index:3;
+  top:14%;
   left:0;
   right:0;
-  z-index:2;
   padding:0 5px;
   font-family:Georgia,serif;
   font-style:italic;
   font-size:clamp(17px,2.3vw,29px);
-  text-shadow:0 3px 12px #000;
+  text-shadow:0 3px 12px black;
 }
+
 .play{
   position:absolute;
+  z-index:4;
   right:10px;
   bottom:10px;
-  z-index:3;
   width:42px;
   height:42px;
   display:grid;
@@ -268,27 +323,186 @@ nav a:first-child{border-bottom:2px solid var(--gold)}
   border-radius:50%;
   background:#0009;
 }
+
 .song-name{
   font-size:17px;
   font-weight:600;
   margin-top:14px;
 }
+
+/* BİR MESELE */
+
 .cover1{
-  background-image:url("https://images.unsplash.com/photo-1511920170033-f8396924c348?auto=format&fit=crop&w=600&q=85");
+  background:
+    radial-gradient(ellipse at 50% 75%,#a87943,#251a13 40%,#080a0d 85%);
 }
+
+.cover1::before{
+  content:"";
+  position:absolute;
+  width:34%;
+  height:40%;
+  bottom:10%;
+  left:33%;
+  border:3px solid #c6a17a;
+  border-radius:5px 5px 14px 14px;
+  background:linear-gradient(
+    180deg,
+    #ffffff12 0%,
+    #ffffff08 30%,
+    #7c431d 31%,
+    #3e1d0e 90%
+  );
+  box-shadow:0 8px 20px #000;
+}
+
+/* EYLÜLCE */
+
 .cover2{
-  background-image:url("https://images.unsplash.com/photo-1519608487953-e999c86e7455?auto=format&fit=crop&w=600&q=85");
+  background:
+    repeating-linear-gradient(
+      100deg,
+      transparent 0 20px,
+      #a2d4ec13 21px 23px,
+      transparent 24px 40px
+    ),
+    radial-gradient(circle at 50% 75%,#8e4030,#173448 45%,#071019);
 }
+
+.cover2::before{
+  content:"";
+  position:absolute;
+  left:35%;
+  bottom:10%;
+  width:30%;
+  height:37%;
+  border:3px solid #b8d1dc;
+  border-radius:5px 5px 13px 13px;
+  background:linear-gradient(#ffffff16 15%,#a12519 18%,#5b140e 90%);
+}
+
+/* AKSİ GÖNÜL */
+
 .cover3{
-  background-image:url("https://images.unsplash.com/photo-1518895949257-7621c3c786d7?auto=format&fit=crop&w=600&q=85");
+  background:radial-gradient(circle at 50% 65%,#4d2b34,#14151b 60%,#090b0e);
 }
+
+.rose{
+  position:absolute;
+  left:50%;
+  top:57%;
+  width:36%;
+  aspect-ratio:1;
+  transform:translate(-50%,-50%) rotate(-25deg);
+  border-radius:15% 75% 20% 70%;
+  background:
+    radial-gradient(circle at 35% 30%,#f02d49,#96051d 50%,#3e0712);
+  box-shadow:
+    -12px 10px 0 -2px #9d1026,
+    13px 9px 0 -3px #700c1e,
+    0 0 30px #a5002344;
+}
+
+.rose::after{
+  content:"";
+  position:absolute;
+  width:130%;
+  height:5px;
+  left:70%;
+  top:85%;
+  transform:rotate(28deg);
+  background:#31523b;
+}
+
+/* CAN YANIM */
+
 .cover4{
-  background-image:url("https://images.unsplash.com/photo-1470252649378-9c29740c9fa8?auto=format&fit=crop&w=600&q=85");
+  background:linear-gradient(
+    180deg,
+    #261b46 0%,
+    #873b72 42%,
+    #ed8068 68%,
+    #351b42 72%,
+    #160e25 100%
+  );
 }
+
+.tree{
+  position:absolute;
+  width:5px;
+  height:40%;
+  bottom:15%;
+  left:49%;
+  background:#180d1c;
+}
+
+.tree::before{
+  content:"";
+  position:absolute;
+  width:100px;
+  height:85px;
+  bottom:65%;
+  left:50%;
+  transform:translateX(-50%);
+  border-radius:50%;
+  background:radial-gradient(circle,#351b3d,#190f27 70%);
+  clip-path:polygon(
+    50% 0%,65% 15%,83% 5%,80% 30%,100% 40%,
+    80% 60%,90% 80%,60% 72%,50% 100%,
+    35% 75%,10% 85%,20% 60%,0% 40%,
+    25% 30%,20% 10%,40% 20%
+  );
+}
+
+/* FERMANIM VAR */
+
 .cover5{
-  background-image:url("https://images.unsplash.com/photo-1570939274717-7eda259b50ed?auto=format&fit=crop&w=600&q=85");
+  background:linear-gradient(
+    180deg,
+    #334d6a,
+    #d08a73 55%,
+    #e7aa75 75%,
+    #5e403c
+  );
 }
+
+.balloon{
+  position:absolute;
+  width:25px;
+  height:34px;
+  left:30%;
+  top:25%;
+  border-radius:50% 50% 45% 45%;
+  background:#5d3041;
+  box-shadow:55px 18px 0 -7px #78483f,
+             100px -8px 0 -10px #45546b;
+}
+
+.balloon::after{
+  content:"";
+  position:absolute;
+  width:2px;
+  height:16px;
+  left:12px;
+  top:32px;
+  background:#433333;
+}
+
+.rocks{
+  position:absolute;
+  bottom:0;
+  width:100%;
+  height:40%;
+  background:#624a43;
+  clip-path:polygon(
+    0 100%,0 60%,15% 20%,23% 70%,
+    35% 5%,48% 80%,60% 15%,
+    70% 70%,85% 10%,100% 70%,100% 100%
+  );
+}
+
 .center{text-align:center;margin-top:40px}
+
 .gold-btn{
   display:inline-flex;
   align-items:center;
@@ -299,12 +513,14 @@ nav a:first-child{border-bottom:2px solid var(--gold)}
   border-radius:40px;
   transition:.3s;
 }
+
 .gold-btn:hover{
   background:var(--gold);
   color:#080b0e;
 }
 
-/* HAKKIMDA VE DÖNEN PLAK */
+/* HAKKIMDA */
+
 .about{
   display:grid;
   grid-template-columns:1fr 1fr;
@@ -312,14 +528,18 @@ nav a:first-child{border-bottom:2px solid var(--gold)}
   border-top:1px solid #ffffff20;
   border-bottom:1px solid #ffffff20;
 }
+
 .record-area{
   min-height:430px;
   display:flex;
   align-items:center;
   justify-content:center;
-  background:radial-gradient(circle,#6d401f55,transparent 65%),#11100e;
   overflow:hidden;
+  background:
+    radial-gradient(circle,#6d401f55,transparent 65%),
+    #11100e;
 }
+
 .record-player{
   width:350px;
   height:350px;
@@ -327,6 +547,7 @@ nav a:first-child{border-bottom:2px solid var(--gold)}
   place-items:center;
   position:relative;
 }
+
 .vinyl{
   width:315px;
   height:315px;
@@ -340,9 +561,12 @@ nav a:first-child{border-bottom:2px solid var(--gold)}
     #080808 6px
   );
   border:6px solid #171717;
-  box-shadow:0 0 0 2px #69492c,0 15px 45px #000;
+  box-shadow:
+    0 0 0 2px #69492c,
+    0 15px 45px #000;
   animation:spin 7s linear infinite;
 }
+
 .vinyl::before{
   content:"MurKa™";
   position:absolute;
@@ -357,6 +581,7 @@ nav a:first-child{border-bottom:2px solid var(--gold)}
   font-size:20px;
   font-weight:900;
 }
+
 .vinyl::after{
   content:"";
   position:absolute;
@@ -367,9 +592,11 @@ nav a:first-child{border-bottom:2px solid var(--gold)}
   border-radius:50%;
   background:#ddd;
 }
+
 @keyframes spin{
   to{transform:rotate(360deg)}
 }
+
 .tonearm{
   position:absolute;
   width:145px;
@@ -382,6 +609,7 @@ nav a:first-child{border-bottom:2px solid var(--gold)}
   transform-origin:right center;
   box-shadow:0 3px 9px #000;
 }
+
 .tonearm::after{
   content:"";
   position:absolute;
@@ -392,62 +620,75 @@ nav a:first-child{border-bottom:2px solid var(--gold)}
   background:#c9b7a0;
   border-radius:3px;
 }
+
 .about-text{
   padding:55px 9%;
   display:flex;
   flex-direction:column;
   justify-content:center;
 }
+
 .about-text h2{
   font-size:43px;
   margin:0 0 20px;
 }
+
 .about-text p{
   font-size:18px;
   line-height:1.85;
   color:var(--muted);
   max-width:530px;
 }
+
 .about-text .gold-btn{
   align-self:flex-start;
   margin-top:15px;
 }
 
 /* İLETİŞİM */
+
 .contact{
   text-align:center;
   padding:75px 20px;
 }
+
 .contact h2{font-size:36px}
 .contact p{color:var(--muted)}
 
-/* ALT BÖLÜM */
+/* FOOTER */
+
 footer{
   padding:38px 5%;
   border-top:1px solid #ffffff20;
   background:#08090b;
 }
+
 .footer-main{
   display:flex;
   align-items:center;
   justify-content:space-between;
   gap:30px;
 }
+
 .footer-logo{
   font-size:36px;
   font-weight:900;
   letter-spacing:-2px;
 }
+
 .footer-links{
   display:flex;
   flex-wrap:wrap;
   gap:24px;
 }
+
 .footer-links a{
   color:#ddd;
   font-size:14px;
 }
+
 .footer-links a:hover{color:var(--gold)}
+
 .copyright{
   text-align:center;
   margin-top:35px;
@@ -455,11 +696,14 @@ footer{
   font-size:14px;
 }
 
-/* TELEFON */
+/* MOBİL */
+
 @media(max-width:850px){
+
   header{height:70px;padding:0 20px}
   .logo{font-size:31px}
   .menu-btn{display:block}
+
   nav{
     display:none;
     position:absolute;
@@ -472,44 +716,82 @@ footer{
     background:#080b0e;
     border-bottom:1px solid #ffffff30;
   }
+
   nav.open{display:flex}
   nav a{width:100%;padding:15px 0}
   nav a:first-child{border-bottom:0}
-  .hero{min-height:730px;padding:55px 15px}
-  .artist-label{font-size:12px;letter-spacing:6px}
+
+  .hero{
+    min-height:730px;
+    padding:55px 15px;
+  }
+
+  .studio-art{
+    width:170%;
+    max-width:none;
+    left:-35%;
+  }
+
+  .artist-label{
+    font-size:12px;
+    letter-spacing:6px;
+  }
+
   .hero h1{letter-spacing:-5px}
   .roles{font-size:14px}
+
   .platforms{
     grid-template-columns:repeat(3,minmax(0,1fr));
     gap:9px;
   }
-  .platform{min-height:100px;border-radius:13px}
+
+  .platform{
+    min-height:100px;
+    border-radius:13px;
+  }
+
   .platform svg{width:30px;height:30px}
   .platform span{font-size:12px}
+
   .section{padding:60px 17px}
   .section-title{gap:13px}
+
   .section-title::before,
   .section-title::after{width:35px}
+
   .songs{
     grid-template-columns:repeat(2,minmax(0,1fr));
     gap:20px 15px;
   }
+
   .song:last-child{
     grid-column:1/-1;
     width:calc(50% - 8px);
     justify-self:center;
   }
+
   .cover-title{font-size:22px}
   .song-name{font-size:15px}
+
   .about{grid-template-columns:1fr}
   .record-area{min-height:340px}
   .record-player{transform:scale(.8)}
+
   .about-text{padding:45px 25px 60px}
   .about-text h2{font-size:35px}
   .about-text p{font-size:16px}
-  .footer-main{flex-direction:column;text-align:center}
-  .footer-links{justify-content:center;gap:17px}
+
+  .footer-main{
+    flex-direction:column;
+    text-align:center;
+  }
+
+  .footer-links{
+    justify-content:center;
+    gap:17px;
+  }
 }
+
 @media(prefers-reduced-motion:reduce){
   *,*::before,*::after{
     animation-duration:.01ms!important;
@@ -523,10 +805,15 @@ footer{
 
 <header>
   <a href="#home" class="logo">MurKa<sup>™</sup></a>
-  <button class="menu-btn" id="menuButton"
+
+  <button
+    class="menu-btn"
+    id="menuButton"
     aria-label="Menüyü aç"
     aria-expanded="false"
-    onclick="toggleMenu()">☰</button>
+    onclick="toggleMenu()"
+  >☰</button>
+
   <nav id="menu">
     <a href="#home" onclick="closeMenu()">Ana Sayfa</a>
     <a href="#songs" onclick="closeMenu()">Eserlerim</a>
@@ -538,205 +825,589 @@ footer{
 <main>
 
 <section class="hero" id="home">
+
+  <div class="studio-bg">
+
+    <!--
+      ÖZEL STÜDYO GÖRSELİ
+      SOLDa KULAKLIK
+      SAĞDA SES MİKSERİ
+      GİTAR YOK
+    -->
+
+    <svg class="studio-art"
+      viewBox="0 0 1440 800"
+      preserveAspectRatio="xMidYMid slice"
+      xmlns="http://www.w3.org/2000/svg">
+
+      <defs>
+
+        <linearGradient id="desk" x1="0" y1="0" x2="0" y2="1">
+          <stop offset="0" stop-color="#403027"/>
+          <stop offset=".5" stop-color="#1b1716"/>
+          <stop offset="1" stop-color="#08090b"/>
+        </linearGradient>
+
+        <linearGradient id="metal" x1="0" y1="0" x2="1" y2="1">
+          <stop offset="0" stop-color="#b7a082"/>
+          <stop offset=".2" stop-color="#29292c"/>
+          <stop offset=".55" stop-color="#08090b"/>
+          <stop offset=".85" stop-color="#6c5744"/>
+          <stop offset="1" stop-color="#111"/>
+        </linearGradient>
+
+        <radialGradient id="cup">
+          <stop offset="0" stop-color="#22252a"/>
+          <stop offset=".55" stop-color="#07090b"/>
+          <stop offset=".75" stop-color="#3c3028"/>
+          <stop offset="1" stop-color="#0a0a0b"/>
+        </radialGradient>
+
+        <linearGradient id="console" x1="0" y1="0" x2="1" y2="1">
+          <stop offset="0" stop-color="#38434b"/>
+          <stop offset=".45" stop-color="#15191d"/>
+          <stop offset="1" stop-color="#080a0c"/>
+        </linearGradient>
+
+        <filter id="shadow">
+          <feGaussianBlur stdDeviation="13"/>
+        </filter>
+
+        <filter id="softGlow">
+          <feGaussianBlur stdDeviation="7"/>
+        </filter>
+
+      </defs>
+
+      <!-- ARKA PLAN -->
+
+      <rect width="1440" height="800" fill="#080b0e"/>
+
+      <rect x="0" y="0" width="280" height="480"
+        fill="#123047" opacity=".25"/>
+
+      <rect x="1150" y="0" width="290" height="480"
+        fill="#5b3018" opacity=".25"/>
+
+      <ellipse cx="120" cy="180" rx="170" ry="230"
+        fill="#22658a" opacity=".12" filter="url(#shadow)"/>
+
+      <ellipse cx="1300" cy="150" rx="180" ry="240"
+        fill="#dc8c37" opacity=".12" filter="url(#shadow)"/>
+
+      <!-- STÜDYO MASASI -->
+
+      <path d="M0 515 L1440 515 L1440 800 L0 800Z"
+        fill="url(#desk)"/>
+
+      <path d="M0 517 L1440 517"
+        stroke="#8d6540" stroke-width="4" opacity=".45"/>
+
+      <path d="M0 590 L1440 590"
+        stroke="#886342" opacity=".15"/>
+
+      <path d="M0 680 L1440 680"
+        stroke="#886342" opacity=".12"/>
+
+      <!-- KULAKLIK GÖLGESİ -->
+
+      <ellipse cx="245" cy="680" rx="245" ry="65"
+        fill="#000" opacity=".8" filter="url(#shadow)"/>
+
+      <!-- KULAKLIK BANDI -->
+
+      <path d="M80 500
+               C60 245 405 210 465 485"
+        fill="none"
+        stroke="#08090a"
+        stroke-width="65"
+        stroke-linecap="round"/>
+
+      <path d="M80 500
+               C60 245 405 210 465 485"
+        fill="none"
+        stroke="#8a6a48"
+        stroke-width="10"
+        opacity=".75"/>
+
+      <path d="M91 470
+               C100 285 375 260 443 470"
+        fill="none"
+        stroke="#33363a"
+        stroke-width="25"/>
+
+      <!-- SOL KULAKLIK -->
+
+      <g transform="translate(85 465) rotate(-12)">
+
+        <rect x="-40" y="-12" width="140" height="210"
+          rx="52" fill="url(#metal)"/>
+
+        <ellipse cx="36" cy="96" rx="91" ry="112"
+          fill="#090b0d" stroke="#8e7152" stroke-width="9"/>
+
+        <ellipse cx="36" cy="96" rx="76" ry="96"
+          fill="url(#cup)" stroke="#34373a" stroke-width="8"/>
+
+        <ellipse cx="36" cy="96" rx="57" ry="75"
+          fill="#141619" stroke="#806448" stroke-width="3"/>
+
+        <ellipse cx="36" cy="96" rx="42" ry="57"
+          fill="#08090a"/>
+
+      </g>
+
+      <!-- SAĞ KULAKLIK -->
+
+      <g transform="translate(285 455) rotate(13)">
+
+        <rect x="-25" y="0" width="170" height="230"
+          rx="60" fill="url(#metal)"/>
+
+        <ellipse cx="60" cy="115" rx="105" ry="123"
+          fill="#090a0c" stroke="#98734d" stroke-width="10"/>
+
+        <ellipse cx="60" cy="115" rx="89" ry="106"
+          fill="url(#cup)" stroke="#34373a" stroke-width="9"/>
+
+        <ellipse cx="60" cy="115" rx="69" ry="84"
+          fill="#17191c" stroke="#b38b5e" stroke-width="4"/>
+
+        <ellipse cx="60" cy="115" rx="50" ry="63"
+          fill="#08090b"/>
+
+        <path d="M22 90 Q60 65 98 90"
+          stroke="#ffffff18" stroke-width="5" fill="none"/>
+
+      </g>
+
+      <!-- KULAKLIK KABLOSU -->
+
+      <path d="M400 660
+               C450 720 390 765 480 800"
+        fill="none" stroke="#050505" stroke-width="11"/>
+
+      <path d="M400 660
+               C450 720 390 765 480 800"
+        fill="none" stroke="#4d4d4d" stroke-width="2"/>
+
+      <!-- MİKSER GÖLGESİ -->
+
+      <path d="M790 460 L1440 350 L1440 800 L720 800Z"
+        fill="#000" opacity=".55" filter="url(#shadow)"/>
+
+      <!-- MİKSER GÖVDESİ -->
+
+      <path d="M820 460
+               L1440 340
+               L1440 800
+               L720 800Z"
+        fill="url(#console)"
+        stroke="#5d6669"
+        stroke-width="5"/>
+
+      <path d="M820 460 L1440 340"
+        stroke="#c1a176" stroke-width="4" opacity=".6"/>
+
+      <!-- MİKSER KANALLARI -->
+
+      <g stroke="#71808b" stroke-width="2" opacity=".5">
+
+        <path d="M870 485 L790 790"/>
+        <path d="M940 470 L865 790"/>
+        <path d="M1010 455 L945 790"/>
+        <path d="M1080 440 L1025 790"/>
+        <path d="M1150 425 L1105 790"/>
+        <path d="M1220 410 L1185 790"/>
+        <path d="M1290 395 L1265 790"/>
+        <path d="M1360 380 L1345 790"/>
+
+      </g>
+
+      <!-- SES DÜĞMELERİ -->
+
+      <g fill="#11161a" stroke="#8b765e" stroke-width="3">
+
+        <ellipse cx="875" cy="520" rx="13" ry="9"/>
+        <ellipse cx="945" cy="505" rx="13" ry="9"/>
+        <ellipse cx="1015" cy="490" rx="13" ry="9"/>
+        <ellipse cx="1085" cy="475" rx="13" ry="9"/>
+        <ellipse cx="1155" cy="460" rx="13" ry="9"/>
+        <ellipse cx="1225" cy="445" rx="13" ry="9"/>
+        <ellipse cx="1295" cy="430" rx="13" ry="9"/>
+        <ellipse cx="1365" cy="415" rx="13" ry="9"/>
+
+        <ellipse cx="860" cy="560" rx="13" ry="9"/>
+        <ellipse cx="935" cy="545" rx="13" ry="9"/>
+        <ellipse cx="1005" cy="530" rx="13" ry="9"/>
+        <ellipse cx="1075" cy="515" rx="13" ry="9"/>
+        <ellipse cx="1145" cy="500" rx="13" ry="9"/>
+        <ellipse cx="1215" cy="485" rx="13" ry="9"/>
+        <ellipse cx="1285" cy="470" rx="13" ry="9"/>
+        <ellipse cx="1355" cy="455" rx="13" ry="9"/>
+
+      </g>
+
+      <!-- IŞIKLI TUŞLAR -->
+
+      <g fill="#d99b45">
+
+        <rect x="820" y="600" width="32" height="12" rx="3"/>
+        <rect x="895" y="585" width="32" height="12" rx="3"/>
+        <rect x="970" y="570" width="32" height="12" rx="3"/>
+        <rect x="1045" y="555" width="32" height="12" rx="3"/>
+        <rect x="1120" y="540" width="32" height="12" rx="3"/>
+        <rect x="1195" y="525" width="32" height="12" rx="3"/>
+        <rect x="1270" y="510" width="32" height="12" rx="3"/>
+        <rect x="1345" y="495" width="32" height="12" rx="3"/>
+
+      </g>
+
+      <!-- FADER YUVALARI -->
+
+      <g stroke="#050608" stroke-width="9" stroke-linecap="round">
+
+        <path d="M820 655 L790 760"/>
+        <path d="M900 640 L870 760"/>
+        <path d="M980 625 L950 760"/>
+        <path d="M1060 610 L1030 760"/>
+        <path d="M1140 595 L1110 760"/>
+        <path d="M1220 580 L1190 760"/>
+        <path d="M1300 565 L1270 760"/>
+        <path d="M1380 550 L1350 760"/>
+
+      </g>
+
+      <!-- FADER KOLLARI -->
+
+      <g fill="#d5d8d8" stroke="#70777b" stroke-width="3">
+
+        <rect x="794" y="695" width="42" height="19" rx="4"
+          transform="rotate(-15 815 704)"/>
+
+        <rect x="874" y="670" width="42" height="19" rx="4"
+          transform="rotate(-15 895 679)"/>
+
+        <rect x="954" y="710" width="42" height="19" rx="4"
+          transform="rotate(-15 975 719)"/>
+
+        <rect x="1034" y="655" width="42" height="19" rx="4"
+          transform="rotate(-15 1055 664)"/>
+
+        <rect x="1114" y="690" width="42" height="19" rx="4"
+          transform="rotate(-15 1135 699)"/>
+
+        <rect x="1194" y="625" width="42" height="19" rx="4"
+          transform="rotate(-15 1215 634)"/>
+
+        <rect x="1274" y="675" width="42" height="19" rx="4"
+          transform="rotate(-15 1295 684)"/>
+
+        <rect x="1354" y="610" width="42" height="19" rx="4"
+          transform="rotate(-15 1375 619)"/>
+
+      </g>
+
+      <!-- ORTADAKİ KARANLIK ALAN -->
+
+      <ellipse cx="710" cy="350" rx="400" ry="300"
+        fill="#000" opacity=".42" filter="url(#shadow)"/>
+
+    </svg>
+
+  </div>
+
   <div class="artist-label">RESMÎ SANATÇI</div>
+
   <h1>MurKa<sup>™</sup></h1>
-  <div class="roles">Söz Yazarı • Besteci • Prodüktör</div>
+
+  <div class="roles">
+    Söz Yazarı • Besteci • Prodüktör
+  </div>
+
   <div class="light-line"></div>
-  <p class="slogan">“Söz biter, eser kalır.”</p>
+
+  <p class="slogan">
+    “Söz biter, eser kalır.”
+  </p>
 
   <div class="platforms">
 
     <a class="platform"
-      href="https://www.youtube.com/@murka_music"
-      target="_blank" rel="noopener noreferrer">
+       href="https://www.youtube.com/@murka_music"
+       target="_blank" rel="noopener noreferrer">
+
       <svg class="yt" viewBox="0 0 24 24" fill="currentColor">
         <path d="M23.5 6.2a3 3 0 0 0-2.1-2.1C19.5 3.6 12 3.6 12 3.6s-7.5 0-9.4.5A3 3 0 0 0 .5 6.2 31 31 0 0 0 0 12a31 31 0 0 0 .5 5.8 3 3 0 0 0 2.1 2.1c1.9.5 9.4.5 9.4.5s7.5 0 9.4-.5a3 3 0 0 0 2.1-2.1A31 31 0 0 0 24 12a31 31 0 0 0-.5-5.8ZM9.6 15.5v-7l6.3 3.5-6.3 3.5Z"/>
       </svg>
+
       <span>YouTube</span>
     </a>
 
     <a class="platform"
-      href="https://open.spotify.com/search/MurKa"
-      target="_blank" rel="noopener noreferrer">
+       href="https://open.spotify.com/search/MurKa"
+       target="_blank" rel="noopener noreferrer">
+
       <svg class="sp" viewBox="0 0 24 24" fill="currentColor">
         <path d="M12 0a12 12 0 1 0 0 24 12 12 0 0 0 0-24Zm5.5 17.3a.75.75 0 0 1-1 .25c-2.8-1.7-6.3-2.1-10.4-1.15a.75.75 0 0 1-.35-1.46c4.5-1 8.4-.56 11.5 1.34.36.22.47.68.25 1.02Zm1.4-3.1a.94.94 0 0 1-1.3.31c-3.2-1.97-8.1-2.54-11.9-1.39a.94.94 0 1 1-.54-1.8c4.35-1.32 9.8-.68 13.43 1.56.44.27.58.85.31 1.3Zm.12-3.23C15.2 8.7 8.9 8.5 5.2 9.62a1.13 1.13 0 0 1-.65-2.16c4.3-1.3 11.3-1.05 15.6 1.5a1.13 1.13 0 0 1-1.13 2.01Z"/>
       </svg>
+
       <span>Spotify</span>
     </a>
 
     <a class="platform"
-      href="https://music.apple.com/de/search?term=MurKa"
-      target="_blank" rel="noopener noreferrer">
+       href="https://music.apple.com/de/search?term=MurKa"
+       target="_blank" rel="noopener noreferrer">
+
       <svg class="ap" viewBox="0 0 24 24" fill="currentColor">
         <path d="M17.05 12.54c.02 2.3 2.02 3.06 2.04 3.07-.02.05-.32 1.1-1.05 2.18-.63.93-1.28 1.85-2.3 1.87-1 .02-1.32-.6-2.47-.6-1.15 0-1.5.58-2.45.62-1 .04-1.76-1-2.4-1.93-1.31-1.9-2.3-5.38-.96-7.72a3.7 3.7 0 0 1 3.12-1.9c.97-.02 1.89.66 2.49.66.59 0 1.7-.81 2.86-.69.49.02 1.87.2 2.75 1.5-.07.04-1.64.95-1.63 2.94ZM15.15 6.9a3.8 3.8 0 0 0 .88-2.76 3.8 3.8 0 0 0-2.48 1.31 3.6 3.6 0 0 0-.9 2.68 3.18 3.18 0 0 0 2.5-1.23Z"/>
       </svg>
+
       <span>Apple Music</span>
     </a>
 
     <a class="platform"
-      href="https://www.tiktok.com/@murka.music"
-      target="_blank" rel="noopener noreferrer">
+       href="https://www.tiktok.com/@murka.music"
+       target="_blank" rel="noopener noreferrer">
+
       <svg class="tt" viewBox="0 0 24 24" fill="currentColor">
         <path d="M16.6 1h-3.5v14.4a3.2 3.2 0 1 1-2.8-3.17V8.7a6.7 6.7 0 1 0 6.3 6.7V8.1a8.5 8.5 0 0 0 5 1.6V6.2a5.1 5.1 0 0 1-5-5.2Z"/>
       </svg>
+
       <span>TikTok</span>
     </a>
 
     <a class="platform"
-      href="https://www.instagram.com/murka.music/"
-      target="_blank" rel="noopener noreferrer">
+       href="https://www.instagram.com/murka.music/"
+       target="_blank" rel="noopener noreferrer">
+
       <svg class="ig" viewBox="0 0 24 24"
-        fill="none" stroke="currentColor" stroke-width="2">
+           fill="none" stroke="currentColor" stroke-width="2">
         <rect x="2" y="2" width="20" height="20" rx="6"/>
         <circle cx="12" cy="12" r="4"/>
         <circle cx="18" cy="6" r="1" fill="currentColor" stroke="none"/>
       </svg>
+
       <span>Instagram</span>
     </a>
 
     <a class="platform"
-      href="https://music.amazon.de/artists/B082J87KZ8/murka"
-      target="_blank" rel="noopener noreferrer">
+       href="https://music.amazon.de/artists/B082J87KZ8/murka"
+       target="_blank" rel="noopener noreferrer">
+
       <svg class="am" viewBox="0 0 24 24" fill="currentColor">
         <text x="2" y="11" font-size="9" font-weight="bold">music</text>
-        <path d="M4 15 Q12 21 20 14" stroke="currentColor"
-          stroke-width="1.8" fill="none"/>
-        <path d="M17 13 L21 13 L20 17" stroke="currentColor"
-          stroke-width="1.4" fill="none"/>
+        <path d="M4 15 Q12 21 20 14"
+              stroke="currentColor" stroke-width="1.8" fill="none"/>
+        <path d="M17 13 L21 13 L20 17"
+              stroke="currentColor" stroke-width="1.4" fill="none"/>
       </svg>
+
       <span>Amazon Music</span>
     </a>
 
   </div>
+
 </section>
 
 <section class="section" id="songs">
-  <div class="section-title"><h2>Eserlerim</h2></div>
+
+  <div class="section-title">
+    <h2>Eserlerim</h2>
+  </div>
 
   <div class="songs">
 
     <a class="song"
-      href="https://www.youtube.com/results?search_query=MurKa+Bir+Mesele"
-      target="_blank" rel="noopener noreferrer">
+       href="https://www.youtube.com/results?search_query=MurKa+Bir+Mesele"
+       target="_blank" rel="noopener noreferrer">
+
       <div class="cover cover1">
         <div class="cover-title">Bir Mesele</div>
         <div class="play">▶</div>
       </div>
+
       <div class="song-name">Bir Mesele</div>
     </a>
 
     <a class="song"
-      href="https://www.youtube.com/results?search_query=MurKa+Eylulce"
-      target="_blank" rel="noopener noreferrer">
+       href="https://www.youtube.com/results?search_query=MurKa+Eylulce"
+       target="_blank" rel="noopener noreferrer">
+
       <div class="cover cover2">
         <div class="cover-title">Eylülce</div>
         <div class="play">▶</div>
       </div>
+
       <div class="song-name">Eylülce</div>
     </a>
 
     <a class="song"
-      href="https://www.youtube.com/results?search_query=MurKa+Aksi+Gonul"
-      target="_blank" rel="noopener noreferrer">
+       href="https://www.youtube.com/results?search_query=MurKa+Aksi+Gonul"
+       target="_blank" rel="noopener noreferrer">
+
       <div class="cover cover3">
         <div class="cover-title">Aksi Gönül</div>
+        <div class="rose"></div>
         <div class="play">▶</div>
       </div>
+
       <div class="song-name">Aksi Gönül</div>
     </a>
 
     <a class="song"
-      href="https://www.youtube.com/results?search_query=MurKa+Can+Yanim"
-      target="_blank" rel="noopener noreferrer">
+       href="https://www.youtube.com/results?search_query=MurKa+Can+Yanim"
+       target="_blank" rel="noopener noreferrer">
+
       <div class="cover cover4">
         <div class="cover-title">Can Yanım</div>
+        <div class="tree"></div>
         <div class="play">▶</div>
       </div>
+
       <div class="song-name">Can Yanım</div>
     </a>
 
     <a class="song"
-      href="https://www.youtube.com/results?search_query=MurKa+Fermanim+Var"
-      target="_blank" rel="noopener noreferrer">
+       href="https://www.youtube.com/results?search_query=MurKa+Fermanim+Var"
+       target="_blank" rel="noopener noreferrer">
+
       <div class="cover cover5">
         <div class="cover-title">Fermanım Var</div>
+        <div class="balloon"></div>
+        <div class="rocks"></div>
         <div class="play">▶</div>
       </div>
+
       <div class="song-name">Fermanım Var</div>
     </a>
 
   </div>
 
   <div class="center">
+
     <a class="gold-btn"
-      href="https://www.youtube.com/@murka_music"
-      target="_blank" rel="noopener noreferrer">
+       href="https://www.youtube.com/@murka_music"
+       target="_blank" rel="noopener noreferrer">
+
       ♫ Tüm Eserlerim →
+
     </a>
+
   </div>
+
 </section>
 
 <section class="about" id="about">
+
   <div class="record-area">
+
     <div class="record-player">
+
       <div class="vinyl"></div>
       <div class="tonearm"></div>
+
     </div>
+
   </div>
 
   <div class="about-text">
+
     <h2>Hakkımda</h2>
+
     <p>
       MurKa™, söz yazarı, besteci ve prodüktör olarak
       kendi eserlerini üreten bağımsız bir müzik sanatçısıdır.
     </p>
+
     <p>
       Türkçe müziğin duygusunu modern müzikal yaklaşımlarla
       harmanlayarak özgün eserler ortaya koyar.
     </p>
-    <a class="gold-btn" href="#contact">Daha Fazla →</a>
+
+    <a class="gold-btn" href="#contact">
+      Daha Fazla →
+    </a>
+
   </div>
+
 </section>
 
 <section class="contact" id="contact">
+
   <h2>İletişim</h2>
-  <p>MurKa™ ile sosyal medya üzerinden iletişime geçebilirsiniz.</p>
+
+  <p>
+    MurKa™ ile sosyal medya üzerinden iletişime geçebilirsiniz.
+  </p>
+
   <a class="gold-btn"
-    href="https://www.instagram.com/murka.music/"
-    target="_blank" rel="noopener noreferrer">
+     href="https://www.instagram.com/murka.music/"
+     target="_blank" rel="noopener noreferrer">
+
     Instagram'dan İletişime Geç →
+
   </a>
+
 </section>
 
 </main>
 
 <footer>
+
   <div class="footer-main">
-    <div class="footer-logo">MurKa<sup>™</sup></div>
-    <div class="footer-links">
-      <a href="https://www.youtube.com/@murka_music">YouTube</a>
-      <a href="https://open.spotify.com/search/MurKa">Spotify</a>
-      <a href="https://music.apple.com/de/search?term=MurKa">Apple Music</a>
-      <a href="https://www.tiktok.com/@murka.music">TikTok</a>
-      <a href="https://www.instagram.com/murka.music/">Instagram</a>
-      <a href="https://music.amazon.de/artists/B082J87KZ8/murka">Amazon Music</a>
+
+    <div class="footer-logo">
+      MurKa<sup>™</sup>
     </div>
+
+    <div class="footer-links">
+
+      <a href="https://www.youtube.com/@murka_music">YouTube</a>
+
+      <a href="https://open.spotify.com/search/MurKa">Spotify</a>
+
+      <a href="https://music.apple.com/de/search?term=MurKa">
+        Apple Music
+      </a>
+
+      <a href="https://www.tiktok.com/@murka.music">TikTok</a>
+
+      <a href="https://www.instagram.com/murka.music/">
+        Instagram
+      </a>
+
+      <a href="https://music.amazon.de/artists/B082J87KZ8/murka">
+        Amazon Music
+      </a>
+
+    </div>
+
   </div>
-  <div class="copyright">© 2026 MurKa™. Tüm hakları saklıdır.</div>
+
+  <div class="copyright">
+    © 2026 MurKa™. Tüm hakları saklıdır.
+  </div>
+
 </footer>
 
 <script>
 function toggleMenu(){
   const menu=document.getElementById("menu");
   const button=document.getElementById("menuButton");
+
   const open=menu.classList.toggle("open");
+
   button.setAttribute("aria-expanded",String(open));
 }
+
 function closeMenu(){
   document.getElementById("menu").classList.remove("open");
-  document.getElementById("menuButton").setAttribute("aria-expanded","false");
+
+  document.getElementById("menuButton")
+    .setAttribute("aria-expanded","false");
 }
 </script>
 
 </body>
-</html>
+          </html>
