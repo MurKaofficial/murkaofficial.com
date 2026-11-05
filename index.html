@@ -1,1 +1,969 @@
-0000
+<!DOCTYPE html>
+<html lang="tr">
+
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<meta name="theme-color" content="#080a0d">
+
+<title>MurKa™ | Resmî Sanatçı</title>
+
+<meta name="description"
+content="MurKa™ resmî sanatçı sitesi. Söz yazarı, besteci ve prodüktör. Söz biter, eser kalır.">
+
+<style>
+
+/* =========================================
+   MURKA™ OFFICIAL
+   PREMIUM ARTIST WEBSITE
+   ========================================= */
+
+:root {
+  --black: #080a0d;
+  --dark: #0c0e12;
+  --gold: #d5a45c;
+  --gold-light: #f3d49b;
+  --white: #f7f7f7;
+  --muted: #bfc0c3;
+}
+
+* {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+}
+
+html {
+  scroll-behavior: smooth;
+}
+
+body {
+  background: var(--black);
+  color: var(--white);
+  font-family: Arial, Helvetica, sans-serif;
+  overflow-x: hidden;
+}
+
+a {
+  text-decoration: none;
+  color: inherit;
+}
+
+button {
+  font: inherit;
+}
+
+img {
+  display: block;
+  width: 100%;
+}
+
+svg {
+  display: block;
+}
+
+section {
+  scroll-margin-top: 78px;
+}
+
+/* =========================================
+   ÜST MENÜ
+   ========================================= */
+
+.site-header {
+  position: sticky;
+  top: 0;
+  z-index: 1000;
+
+  height: 80px;
+  padding: 0 5%;
+
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+
+  background: rgba(5,7,10,.97);
+  border-bottom: 1px solid rgba(255,255,255,.10);
+  backdrop-filter: blur(18px);
+}
+
+.brand {
+  font-size: 39px;
+  font-weight: 900;
+  letter-spacing: -2px;
+  line-height: 1;
+  white-space: nowrap;
+}
+
+.brand sup {
+  color: var(--gold);
+  font-size: 12px;
+  letter-spacing: 0;
+  vertical-align: top;
+}
+
+.navigation {
+  display: flex;
+  align-items: center;
+  gap: 42px;
+}
+
+.navigation a {
+  font-size: 16px;
+  padding: 12px 0;
+  transition: color .25s;
+}
+
+.navigation a:hover {
+  color: var(--gold);
+}
+
+.navigation a:first-child {
+  border-bottom: 2px solid var(--gold);
+}
+
+.menu-button {
+  display: none;
+  width: 42px;
+  height: 42px;
+
+  background: transparent;
+  border: 0;
+  color: white;
+  cursor: pointer;
+}
+
+.menu-button span {
+  display: block;
+  height: 3px;
+  margin: 7px 0;
+  background: white;
+  border-radius: 2px;
+}
+
+/* =========================================
+   ANA SAYFA
+   ========================================= */
+
+.hero {
+  position: relative;
+  isolation: isolate;
+
+  min-height: 565px;
+  padding: 44px 4% 42px;
+
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+
+  text-align: center;
+  overflow: hidden;
+}
+
+/* FOTOĞRAFLI STÜDYO ARKA PLANI */
+
+.hero-photo {
+  position: absolute;
+  inset: 0;
+  z-index: -3;
+
+  background-image:
+    linear-gradient(
+      90deg,
+      rgba(2,5,9,.30),
+      rgba(2,5,9,.47) 48%,
+      rgba(2,5,9,.28)
+    ),
+    url("https://images.unsplash.com/photo-1590602847861-f357a9332bbc?auto=format&fit=crop&w=2200&q=90");
+
+  background-position: center 54%;
+  background-size: cover;
+  background-repeat: no-repeat;
+
+  animation: studioZoom 25s ease-in-out infinite alternate;
+}
+
+@keyframes studioZoom {
+  from { transform: scale(1.02); }
+  to   { transform: scale(1.10); }
+}
+
+/* FOTOĞRAF ÜZERİNDE KARARTMA */
+
+.hero-overlay {
+  position: absolute;
+  inset: 0;
+  z-index: -2;
+
+  background:
+    linear-gradient(
+      180deg,
+      rgba(0,0,0,.12) 0%,
+      rgba(0,0,0,.15) 40%,
+      rgba(0,0,0,.35) 76%,
+      #080a0d 100%
+    );
+}
+
+/* HAFİF ALTIN IŞIK */
+
+.hero-glow {
+  position: absolute;
+  z-index: -1;
+
+  width: 65%;
+  height: 60%;
+  left: 17%;
+  top: 10%;
+
+  background: radial-gradient(
+    ellipse,
+    rgba(213,164,92,.09),
+    transparent 70%
+  );
+
+  filter: blur(35px);
+  pointer-events: none;
+  animation: glowMove 12s ease-in-out infinite alternate;
+}
+
+@keyframes glowMove {
+  from { transform: translateX(-8%); }
+  to   { transform: translateX(8%); }
+}
+
+/* RESMÎ SANATÇI */
+
+.official {
+  font-size: 14px;
+  letter-spacing: 8px;
+  font-weight: 400;
+  margin-bottom: 12px;
+  text-shadow: 0 3px 18px #000;
+}
+
+/* ANA LOGO */
+
+.hero-title {
+  font-size: clamp(75px, 11vw, 140px);
+  font-weight: 900;
+  font-style: italic;
+  letter-spacing: -7px;
+  line-height: 1.05;
+
+  text-shadow:
+    0 5px 18px rgba(0,0,0,.75),
+    0 12px 38px rgba(0,0,0,.6);
+}
+
+.hero-title sup {
+  color: var(--gold);
+  font-size: .21em;
+  letter-spacing: 0;
+  vertical-align: top;
+}
+
+.hero-roles {
+  font-size: clamp(16px, 2vw, 23px);
+  margin-top: 9px;
+  text-shadow: 0 3px 15px #000;
+}
+
+/* ALTIN IŞIK ÇİZGİSİ */
+
+.gold-line {
+  position: relative;
+  width: 245px;
+  height: 2px;
+  margin: 25px auto;
+
+  background: linear-gradient(
+    90deg,
+    transparent,
+    var(--gold),
+    #fff2cf,
+    var(--gold),
+    transparent
+  );
+
+  box-shadow: 0 0 16px rgba(213,164,92,.75);
+}
+
+.gold-line::after {
+  content: "";
+  position: absolute;
+  top: -3px;
+  left: 43%;
+  width: 14%;
+  height: 8px;
+
+  border-radius: 50%;
+  background: var(--gold-light);
+  filter: blur(7px);
+}
+
+.slogan {
+  font-family: Georgia, "Times New Roman", serif;
+  font-style: italic;
+  font-size: clamp(27px, 3.7vw, 41px);
+  letter-spacing: .5px;
+
+  margin-bottom: 34px;
+  text-shadow: 0 4px 20px #000;
+}
+
+/* =========================================
+   MÜZİK PLATFORMLARI
+   ========================================= */
+
+.platforms {
+  width: min(1150px, 100%);
+
+  display: grid;
+  grid-template-columns: repeat(6, minmax(0,1fr));
+  gap: 11px;
+}
+
+.platform {
+  min-height: 94px;
+  padding: 12px 5px;
+
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  gap: 9px;
+
+  background: rgba(3,6,9,.88);
+  border: 1px solid rgba(255,255,255,.20);
+  border-radius: 15px;
+
+  box-shadow: 0 8px 22px rgba(0,0,0,.35);
+
+  transition:
+    transform .25s,
+    border-color .25s,
+    box-shadow .25s;
+}
+
+.platform:hover,
+.platform:focus-visible {
+  transform: translateY(-4px);
+  border-color: var(--gold);
+  box-shadow: 0 0 20px rgba(213,164,92,.15);
+}
+
+.platform svg {
+  width: 34px;
+  height: 34px;
+}
+
+.platform span {
+  font-size: 13px;
+  font-weight: 600;
+  white-space: nowrap;
+}
+
+.youtube { color: #ff0033; }
+.spotify { color: #1ed760; }
+.apple { color: white; }
+.instagram { color: #ed4a9b; }
+.amazon { color: white; }
+
+.tiktok {
+  color: white;
+  filter:
+    drop-shadow(-2px 0 #25f4ee)
+    drop-shadow(2px 0 #fe2c55);
+}
+
+/* =========================================
+   ESERLERİM
+   ========================================= */
+
+.music-section {
+  padding: 48px 4% 68px;
+
+  background:
+    radial-gradient(
+      ellipse at 50% 0%,
+      rgba(38,47,57,.14),
+      transparent 65%
+    ),
+    var(--black);
+}
+
+.section-heading {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 32px;
+
+  margin-bottom: 34px;
+}
+
+.section-heading h2 {
+  font-size: clamp(34px, 4.5vw, 46px);
+  font-weight: 700;
+}
+
+.section-heading::before,
+.section-heading::after {
+  content: "";
+  width: 110px;
+  height: 2px;
+
+  background: linear-gradient(
+    90deg,
+    transparent,
+    var(--gold)
+  );
+}
+
+.section-heading::after {
+  transform: rotate(180deg);
+}
+
+/* BEŞ ALBÜM */
+
+.song-grid {
+  width: min(1200px,100%);
+  margin: auto;
+
+  display: grid;
+  grid-template-columns: repeat(5,minmax(0,1fr));
+  gap: 19px;
+}
+
+.song-card {
+  min-width: 0;
+  text-align: center;
+}
+
+.song-cover {
+  position: relative;
+  aspect-ratio: 1;
+  overflow: hidden;
+
+  border: 1px solid rgba(255,255,255,.3);
+  border-radius: 11px;
+
+  background: #141619;
+
+  box-shadow: 0 9px 24px rgba(0,0,0,.5);
+
+  transition:
+    transform .3s,
+    border-color .3s;
+}
+
+.song-card:hover .song-cover {
+  transform: translateY(-5px);
+  border-color: var(--gold);
+}
+
+.song-cover img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  transition: transform .6s;
+}
+
+.song-card:hover img {
+  transform: scale(1.07);
+}
+
+.song-cover::after {
+  content: "";
+  position: absolute;
+  inset: 0;
+
+  background: linear-gradient(
+    180deg,
+    rgba(0,0,0,.50),
+    transparent 52%,
+    rgba(0,0,0,.28)
+  );
+}
+
+.cover-title {
+  position: absolute;
+  z-index: 2;
+  top: 12%;
+  left: 4%;
+  width: 92%;
+
+  font-family: Georgia, serif;
+  font-style: italic;
+  font-size: clamp(17px,2.3vw,29px);
+  line-height: 1.15;
+
+  text-shadow: 0 3px 12px #000;
+}
+
+.play-button {
+  position: absolute;
+  z-index: 3;
+  bottom: 9px;
+  right: 9px;
+
+  width: 42px;
+  height: 42px;
+
+  display: grid;
+  place-items: center;
+
+  border: 2px solid white;
+  border-radius: 50%;
+
+  background: rgba(0,0,0,.7);
+  color: white;
+  font-size: 17px;
+
+  transition: .25s;
+}
+
+.song-card:hover .play-button {
+  background: var(--gold);
+  border-color: var(--gold);
+  color: #080a0d;
+}
+
+.song-name {
+  margin-top: 13px;
+  font-size: 16px;
+  font-weight: 600;
+}
+
+.all-songs {
+  text-align: center;
+  margin-top: 36px;
+}
+
+.gold-button {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  gap: 12px;
+
+  padding: 13px 31px;
+
+  border: 2px solid var(--gold);
+  border-radius: 40px;
+
+  background: rgba(0,0,0,.12);
+  color: white;
+  font-size: 16px;
+
+  transition: .25s;
+}
+
+.gold-button:hover {
+  background: var(--gold);
+  color: #080a0d;
+}
+
+/* =========================================
+   HAKKIMDA
+   ========================================= */
+
+.about-section {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+
+  min-height: 390px;
+
+  border-top: 1px solid rgba(255,255,255,.12);
+  border-bottom: 1px solid rgba(255,255,255,.12);
+}
+
+/* PLAK ÇALAR ALANI */
+
+.record-area {
+  position: relative;
+  min-height: 390px;
+
+  display: grid;
+  place-items: center;
+  overflow: hidden;
+
+  background:
+    radial-gradient(
+      ellipse at 45% 45%,
+      rgba(142,85,35,.23),
+      transparent 65%
+    ),
+    linear-gradient(135deg,#1a130e,#090a0c);
+}
+
+.record-area::before {
+  content: "";
+  position: absolute;
+  inset: 0;
+
+  background: linear-gradient(
+    120deg,
+    transparent 40%,
+    rgba(213,164,92,.05),
+    transparent 65%
+  );
+
+  pointer-events: none;
+}
+
+.turntable {
+  position: relative;
+
+  width: 325px;
+  height: 325px;
+
+  display: grid;
+  place-items: center;
+
+  border-radius: 15px;
+
+  background: linear-gradient(
+    135deg,
+    #35251a,
+    #100f0e 48%,
+    #302015
+  );
+
+  box-shadow:
+    0 18px 45px rgba(0,0,0,.7),
+    inset 0 0 0 2px rgba(213,164,92,.2);
+}
+
+/* GERÇEKTEN DÖNEN PLAK */
+
+.vinyl {
+  position: relative;
+  width: 283px;
+  height: 283px;
+  border-radius: 50%;
+
+  border: 5px solid #090909;
+
+  background:
+    repeating-radial-gradient(
+      circle,
+      #080808 0px,
+      #191919 2px,
+      #303030 3px,
+      #0b0b0b 5px
+    );
+
+  box-shadow:
+    0 0 0 2px #4c3927,
+    0 12px 28px #000;
+
+  animation: vinylSpin 5s linear infinite;
+}
+
+@keyframes vinylSpin {
+  to { transform: rotate(360deg); }
+}
+
+.vinyl-label {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+
+  width: 100px;
+  height: 100px;
+
+  transform: translate(-50%,-50%);
+
+  display: grid;
+  place-items: center;
+
+  border: 3px solid #3d2815;
+  border-radius: 50%;
+
+  background: radial-gradient(
+    circle,
+    #e5bb7e,
+    #ad773c 65%,
+    #583417
+  );
+
+  color: #1b130b;
+  font-size: 18px;
+  font-weight: 900;
+}
+
+.vinyl-label::after {
+  content: "";
+  position: absolute;
+
+  width: 9px;
+  height: 9px;
+
+  border: 2px solid #444;
+  border-radius: 50%;
+  background: #ddd;
+}
+
+.tonearm {
+  position: absolute;
+  top: 63px;
+  right: -16px;
+
+  width: 148px;
+  height: 10px;
+
+  transform: rotate(39deg);
+  transform-origin: right center;
+
+  border-radius: 10px;
+
+  background: linear-gradient(
+    #e8ddcb,
+    #9d8f7c,
+    #3c3935
+  );
+
+  box-shadow: 0 4px 10px #000;
+}
+
+.tonearm::before {
+  content: "";
+  position: absolute;
+  left: -10px;
+  top: -6px;
+
+  width: 28px;
+  height: 22px;
+
+  border-radius: 4px;
+  background: #d0bca0;
+}
+
+.about-content {
+  padding: 48px 9%;
+
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+}
+
+.about-content h2 {
+  font-size: 42px;
+  margin-bottom: 19px;
+}
+
+.about-content p {
+  max-width: 550px;
+
+  color: var(--muted);
+  font-size: 17px;
+  line-height: 1.8;
+
+  margin-bottom: 15px;
+}
+
+.about-content .gold-button {
+  align-self: flex-start;
+  margin-top: 12px;
+}
+
+/* =========================================
+   İLETİŞİM
+   ========================================= */
+
+.contact-section {
+  text-align: center;
+  padding: 65px 20px 75px;
+
+  background: radial-gradient(
+    ellipse at 50% 100%,
+    rgba(213,164,92,.07),
+    transparent 65%
+  );
+}
+
+.contact-section h2 {
+  font-size: 36px;
+  margin-bottom: 18px;
+}
+
+.contact-section p {
+  color: var(--muted);
+  font-size: 16px;
+  margin-bottom: 26px;
+}
+
+/* =========================================
+   ALT BÖLÜM
+   ========================================= */
+
+.site-footer {
+  padding: 35px 5% 25px;
+
+  border-top: 1px solid rgba(255,255,255,.12);
+  background: #07090b;
+}
+
+.footer-main {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  gap: 25px;
+}
+
+.footer-brand {
+  font-size: 36px;
+  font-weight: 900;
+  letter-spacing: -2px;
+}
+
+.footer-brand sup {
+  color: var(--gold);
+  font-size: 12px;
+  vertical-align: top;
+}
+
+.footer-socials {
+  display: flex;
+  align-items: center;
+  flex-wrap: wrap;
+  gap: 23px;
+}
+
+.footer-socials a {
+  font-size: 14px;
+  color: #ddd;
+  transition: color .25s;
+}
+
+.footer-socials a:hover {
+  color: var(--gold);
+}
+
+.copyright {
+  text-align: center;
+  margin-top: 30px;
+  color: #999;
+  font-size: 13px;
+}
+
+/* =========================================
+   TABLET
+   ========================================= */
+
+@media(max-width:1050px) {
+
+  .navigation {
+    gap: 22px;
+  }
+
+  .song-grid {
+    gap: 12px;
+  }
+
+  .platform span {
+    font-size: 12px;
+  }
+
+}
+
+/* =========================================
+   TELEFON
+   ========================================= */
+
+@media(max-width:850px) {
+
+  .site-header {
+    height: 69px;
+    padding: 0 20px;
+  }
+
+  .brand {
+    font-size: 32px;
+  }
+
+  .menu-button {
+    display: block;
+  }
+
+  .navigation {
+    display: none;
+
+    position: absolute;
+    top: 69px;
+    left: 0;
+    right: 0;
+
+    flex-direction: column;
+    gap: 0;
+
+    padding: 12px 24px 20px;
+
+    background: rgba(6,8,11,.98);
+    border-bottom: 1px solid rgba(255,255,255,.15);
+  }
+
+  .navigation.open {
+    display: flex;
+  }
+
+  .navigation a {
+    width: 100%;
+    padding: 15px 0;
+  }
+
+  .navigation a:first-child {
+    border-bottom: 0;
+  }
+
+  /* TELEFON ANA SAYFA */
+
+  .hero {
+    min-height: 580px;
+    padding: 38px 14px 35px;
+  }
+
+  .hero-photo {
+    background-position: center;
+  }
+
+  .official {
+    font-size: 11px;
+    letter-spacing: 5px;
+    margin-bottom: 12px;
+  }
+
+  .hero-title {
+    font-size: clamp(72px,14vw,105px);
+    letter-spacing: -5px;
+  }
+
+  .hero-roles {
+    font-size: 14px;
+    margin-top: 12px;
+  }
+
+  .gold-line {
+    width: 185px;
+    margin: 23px auto;
+  }
+
+  .slogan {
+    font-size: clamp(26px,5.7vw,36px);
+    margin-bottom: 28px;
+  }
+
+  /* KÜÇÜK SOSYAL KUTULAR */
+
+  .platforms {
+    grid-template-columns: repeat(3,minmax(0,1fr));
+    gap: 8px;
+  }
+
+  .platform {
+    min-height: 84px;
+    padding: 9px 3px;
+    gap: 7px;
+    border-radius: 12px;
+  }
