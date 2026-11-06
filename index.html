@@ -1,1649 +1,385 @@
+PROJECT: MurKa™ — OFFICIAL MUSIC ARTIST WEBSITE
 
-<!DOCTYPE html>
-<html lang="tr">
-<head>
-<meta charset="UTF-8">
-<meta name="viewport" content="width=device-width, initial-scale=1">
-<meta name="theme-color" content="#07090c">
-
-<title>MurKa™ | Resmî Sanatçı</title>
-
-<meta name="description" content="MurKa™ resmî sanatçı internet sitesi. Söz yazarı, besteci ve prodüktör. Söz biter, eser kalır.">
-
-<style>
-/* ========================================
-   MURKA OFFICIAL — PREMIUM ARTIST WEBSITE
-   ======================================== */
-
-:root {
-  --bg: #07090c;
-  --bg2: #0b0e12;
-  --gold: #d7a456;
-  --gold2: #f2cf91;
-  --white: #f7f7f8;
-  --muted: #b7b8bc;
-  --border: rgba(255,255,255,.17);
-}
-
-* {
-  box-sizing: border-box;
-}
-
-html {
-  scroll-behavior: smooth;
-}
-
-body {
-  margin: 0;
-  background: var(--bg);
-  color: var(--white);
-  font-family: Arial, Helvetica, sans-serif;
-  overflow-x: hidden;
-}
-
-a {
-  color: inherit;
-  text-decoration: none;
-}
-
-button {
-  font: inherit;
-}
-
-img, svg {
-  display: block;
-}
-
-img {
-  max-width: 100%;
-}
-
-section {
-  scroll-margin-top: 75px;
-}
-
-::selection {
-  background: var(--gold);
-  color: #080808;
-}
-
-/* ========================================
-   HEADER
-   ======================================== */
-
-.site-header {
-  height: 76px;
-  width: 100%;
-  padding: 0 5%;
-  display: flex;
-  align-items: center;
-  justify-content: space-between;
-  gap: 28px;
-
-  position: sticky;
-  top: 0;
-  z-index: 1000;
-
-  background: rgba(5,7,10,.96);
-  border-bottom: 1px solid rgba(255,255,255,.09);
-  backdrop-filter: blur(18px);
-}
-
-.brand {
-  font-size: 38px;
-  font-weight: 900;
-  letter-spacing: -2.2px;
-  white-space: nowrap;
-  line-height: 1;
-}
-
-.brand sup {
-  color: var(--gold);
-  font-size: 12px;
-  vertical-align: top;
-  letter-spacing: 0;
-  margin-left: 2px;
-}
-
-.desktop-nav {
-  display: flex;
-  align-items: center;
-  gap: 42px;
-}
-
-.desktop-nav a {
-  font-size: 15px;
-  padding: 12px 0;
-  transition: color .25s;
-}
-
-.desktop-nav a:hover {
-  color: var(--gold);
-}
-
-.desktop-nav a:first-child {
-  border-bottom: 2px solid var(--gold);
-}
-
-.menu-button {
-  display: none;
-  width: 43px;
-  height: 43px;
-  border: 0;
-  padding: 7px;
-  background: transparent;
-  color: white;
-  cursor: pointer;
-}
-
-.menu-button span {
-  display: block;
-  height: 2px;
-  margin: 7px 0;
-  background: white;
-  border-radius: 3px;
-}
-
-.mobile-nav {
-  display: none;
-}
-
-/* ========================================
-   HERO — ANA GÖRÜNÜM
-   ======================================== */
-
-.hero {
-  position: relative;
-  isolation: isolate;
-  overflow: hidden;
-
-  min-height: 540px;
-  padding: 35px 4% 52px;
-
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  justify-content: center;
-
-  text-align: center;
-}
-
-/* STÜDYO ARKA PLANI */
-
-.hero-photo {
-  position: absolute;
-  inset: 0;
-  z-index: -4;
-
-  background:
-    linear-gradient(
-      90deg,
-      rgba(3,7,12,.45),
-      rgba(2,5,9,.48) 50%,
-      rgba(5,6,9,.38)
-    ),
-    url("https://images.unsplash.com/photo-1598488035139-bdbb2231ce04?auto=format&fit=crop&w=2400&q=90");
-
-  background-position: center;
-  background-size: cover;
-  background-repeat: no-repeat;
-
-  animation: backgroundZoom 25s ease-in-out infinite alternate;
-}
-
-/* SOLDA KULAKLIK — AYRI GÖRSEL KATMANI */
-
-.headphone-photo {
-  position: absolute;
-  z-index: -3;
-  left: -4%;
-  bottom: 16%;
-  width: min(33vw, 440px);
-  aspect-ratio: 1;
-
-  background:
-    url("https://images.unsplash.com/photo-1505740420928-5e560c06d30e?auto=format&fit=crop&w=900&q=85")
-    center / cover no-repeat;
-
-  border-radius: 50%;
-
-  opacity: .67;
-
-  mask-image:
-    radial-gradient(
-      ellipse at center,
-      black 28%,
-      rgba(0,0,0,.7) 48%,
-      transparent 72%
-    );
-
-  -webkit-mask-image:
-    radial-gradient(
-      ellipse at center,
-      black 28%,
-      rgba(0,0,0,.7) 48%,
-      transparent 72%
-    );
-
-  transform: rotate(-8deg);
-}
-
-/* KARARTMA VE IŞIK */
-
-.hero-overlay {
-  position: absolute;
-  inset: 0;
-  z-index: -2;
-
-  background:
-    linear-gradient(
-      180deg,
-      rgba(0,0,0,.17) 0%,
-      rgba(0,0,0,.22) 40%,
-      rgba(0,0,0,.45) 74%,
-      #07090c 100%
-    );
-}
-
-.hero-glow {
-  position: absolute;
-  inset: -30%;
-  z-index: -1;
-  pointer-events: none;
-
-  background:
-    radial-gradient(
-      circle at 50% 52%,
-      rgba(215,164,86,.075),
-      transparent 39%
-    );
-
-  animation: glowMove 13s ease-in-out infinite alternate;
-}
-
-@keyframes backgroundZoom {
-  from { transform: scale(1.02); }
-  to   { transform: scale(1.10); }
-}
-
-@keyframes glowMove {
-  from { transform: translateX(-5%); }
-  to   { transform: translateX(5%); }
-}
-
-/* SANATÇI YAZILARI */
-
-.artist-label {
-  margin: 0 0 14px;
-  font-size: 13px;
-  letter-spacing: 8px;
-  font-weight: 400;
-  text-shadow: 0 3px 15px #000;
-}
-
-.hero-title {
-  margin: 0;
-  font-size: clamp(76px, 11vw, 145px);
-  font-weight: 900;
-  font-style: italic;
-  letter-spacing: -7px;
-  line-height: 1.04;
-
-  text-shadow:
-    0 7px 22px rgba(0,0,0,.8),
-    0 16px 40px rgba(0,0,0,.55);
-}
-
-.hero-title sup {
-  color: var(--gold);
-  font-size: .19em;
-  font-style: normal;
-  vertical-align: top;
-  letter-spacing: 0;
-  margin-left: 5px;
-}
-
-.artist-roles {
-  margin: 13px 0 0;
-  font-size: clamp(15px,2vw,23px);
-  text-shadow: 0 3px 14px #000;
-}
-
-.gold-line {
-  position: relative;
-  width: 260px;
-  height: 2px;
-  margin: 25px auto 23px;
-
-  background:
-    linear-gradient(
-      90deg,
-      transparent,
-      var(--gold),
-      #fff4d5,
-      var(--gold),
-      transparent
-    );
-
-  box-shadow: 0 0 18px rgba(215,164,86,.8);
-}
-
-.gold-line::after {
-  content: "";
-  position: absolute;
-  left: 50%;
-  top: -4px;
-  width: 45px;
-  height: 9px;
-  transform: translateX(-50%);
-
-  background: var(--gold2);
-  filter: blur(8px);
-  border-radius: 50%;
-}
-
-.slogan {
-  margin: 0 0 35px;
-  font-family: Georgia, "Times New Roman", serif;
-  font-size: clamp(26px,3.6vw,40px);
-  font-style: italic;
-  letter-spacing: .4px;
-  text-shadow: 0 4px 18px #000;
-}
-
-/* ========================================
-   SOSYAL MEDYA — KÜÇÜK KUTULAR
-   ======================================== */
-
-.platforms {
-  width: min(1150px,100%);
-  display: grid;
-  grid-template-columns: repeat(6,minmax(0,1fr));
-  gap: 11px;
-}
-
-.platform {
-  min-width: 0;
-  min-height: 91px;
-  padding: 12px 6px;
-
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  justify-content: center;
-  gap: 9px;
-
-  background: rgba(3,6,10,.91);
-  border: 1px solid rgba(255,255,255,.19);
-  border-radius: 15px;
-
-  box-shadow: 0 10px 25px rgba(0,0,0,.28);
-
-  transition:
-    transform .25s,
-    border-color .25s,
-    box-shadow .25s;
-}
-
-.platform:hover,
-.platform:focus-visible {
-  transform: translateY(-4px);
-  border-color: var(--gold);
-  box-shadow: 0 0 22px rgba(215,164,86,.14);
-}
-
-.platform svg {
-  width: 31px;
-  height: 31px;
-  flex-shrink: 0;
-}
-
-.platform-name {
-  font-size: 13px;
-  font-weight: 600;
-  white-space: nowrap;
-}
-
-.youtube { color: #ff1744; }
-.spotify { color: #1ed760; }
-.apple { color: white; }
-
-.tiktok {
-  color: white;
-  filter:
-    drop-shadow(-1.5px 0 #25f4ee)
-    drop-shadow(1.5px 0 #fe2c55);
-}
-
-.instagram { color: #ed4eab; }
-.amazon { color: white; }
-
-/* ========================================
-   ESERLERİM
-   ======================================== */
-
-.music-section {
-  position: relative;
-  padding: 36px 4% 70px;
-
-  background:
-    radial-gradient(
-      ellipse at 50% 0%,
-      rgba(35,48,61,.17),
-      transparent 62%
-    ),
-    var(--bg);
-}
-
-.section-heading {
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  gap: 27px;
-  margin-bottom: 35px;
-}
-
-.section-heading h2 {
-  margin: 0;
-  font-size: clamp(34px,4.5vw,47px);
-  font-weight: 700;
-}
-
-.section-heading::before,
-.section-heading::after {
-  content: "";
-  width: 120px;
-  height: 2px;
-
-  background:
-    linear-gradient(
-      90deg,
-      transparent,
-      var(--gold)
-    );
-}
-
-.section-heading::after {
-  transform: rotate(180deg);
-}
-
-.songs-grid {
-  max-width: 1220px;
-  margin: auto;
-
-  display: grid;
-  grid-template-columns: repeat(5,minmax(0,1fr));
-  gap: 20px;
-}
-
-.song-card {
-  min-width: 0;
-  text-align: center;
-}
-
-.song-cover {
-  position: relative;
-  width: 100%;
-  aspect-ratio: 1;
-
-  overflow: hidden;
-  border-radius: 12px;
-  border: 1px solid rgba(255,255,255,.28);
-  background: #111;
-
-  box-shadow: 0 10px 25px rgba(0,0,0,.45);
-
-  transition:
-    transform .3s,
-    border-color .3s;
-}
-
-.song-card:hover .song-cover {
-  transform: translateY(-5px);
-  border-color: var(--gold);
-}
-
-.song-cover img {
-  width: 100%;
-  height: 100%;
-  object-fit: cover;
-  transition: transform .5s;
-}
-
-.song-card:hover img {
-  transform: scale(1.07);
-}
-
-.song-cover::after {
-  content: "";
-  position: absolute;
-  inset: 0;
-
-  background:
-    linear-gradient(
-      180deg,
-      rgba(0,0,0,.46),
-      transparent 50%,
-      rgba(0,0,0,.25)
-    );
-
-  pointer-events: none;
-}
-
-.cover-title {
-  position: absolute;
-  z-index: 2;
-  left: 5%;
-  top: 12%;
-  width: 90%;
-
-  font-family: Georgia,serif;
-  font-style: italic;
-  font-size: clamp(17px,2.3vw,28px);
-  line-height: 1.2;
-
-  text-shadow:
-    0 3px 8px #000,
-    0 5px 15px #000;
-}
-
-.play-icon {
-  position: absolute;
-  z-index: 3;
-  right: 10px;
-  bottom: 10px;
-
-  width: 40px;
-  height: 40px;
-
-  display: grid;
-  place-items: center;
-
-  background: rgba(0,0,0,.68);
-  border: 2px solid white;
-  border-radius: 50%;
-
-  font-size: 17px;
-  padding-left: 2px;
-}
-
-.song-name {
-  margin-top: 12px;
-  font-size: 16px;
-  font-weight: 600;
-}
-
-.all-songs {
-  margin-top: 34px;
-  text-align: center;
-}
-
-/* ========================================
-   BUTONLAR
-   ======================================== */
-
-.gold-button {
-  display: inline-flex;
-  align-items: center;
-  justify-content: center;
-  gap: 12px;
-
-  min-height: 49px;
-  padding: 12px 32px;
-
-  background: rgba(0,0,0,.2);
-  border: 2px solid var(--gold);
-  border-radius: 40px;
-
-  font-size: 16px;
-  transition: .25s;
-}
-
-.gold-button:hover {
-  background: var(--gold);
-  color: #080808;
-  box-shadow: 0 0 22px rgba(215,164,86,.2);
-}
-
-/* ========================================
-   HAKKIMDA — DÖNEN PLAK
-   ======================================== */
-
-.about {
-  display: grid;
-  grid-template-columns: 1fr 1fr;
-  min-height: 395px;
-
-  border-top: 1px solid rgba(255,255,255,.13);
-  border-bottom: 1px solid rgba(255,255,255,.13);
-}
-
-.record-area {
-  position: relative;
-  min-height: 395px;
-  overflow: hidden;
-
-  display: grid;
-  place-items: center;
-
-  background:
-    radial-gradient(
-      circle at 45% 45%,
-      rgba(158,95,42,.23),
-      transparent 58%
-    ),
-    linear-gradient(125deg,#1b130e,#08090b);
-}
-
-.record-area::before {
-  content: "";
-  position: absolute;
-  inset: 0;
-
-  background:
-    url("https://images.unsplash.com/photo-1461360228754-6e81c478b882?auto=format&fit=crop&w=1100&q=85")
-    center / cover no-repeat;
-
-  opacity: .18;
-}
-
-.turntable {
-  position: relative;
-  width: 335px;
-  height: 335px;
-
-  display: grid;
-  place-items: center;
-
-  border-radius: 15px;
-
-  background:
-    linear-gradient(
-      135deg,
-      #33251b,
-      #100f0f 45%,
-      #2c211a
-    );
-
-  box-shadow:
-    0 22px 55px rgba(0,0,0,.7),
-    inset 0 0 0 2px rgba(215,164,86,.18);
-}
-
-.vinyl {
-  position: relative;
-  width: 295px;
-  height: 295px;
-  border-radius: 50%;
-
-  background:
-    repeating-radial-gradient(
-      circle,
-      #080808 0px,
-      #151515 2px,
-      #272727 3px,
-      #080808 5px
-    );
-
-  border: 5px solid #090909;
-
-  box-shadow:
-    0 0 0 2px #5c4936,
-    0 12px 25px #000;
-
-  animation: vinylSpin 5s linear infinite;
-}
-
-@keyframes vinylSpin {
-  to {
-    transform: rotate(360deg);
-  }
-}
-
-.vinyl::before {
-  content: "";
-  position: absolute;
-  inset: 19%;
-  border: 1px solid rgba(255,255,255,.08);
-  border-radius: 50%;
-}
-
-.vinyl-label {
-  position: absolute;
-  top: 50%;
-  left: 50%;
-  transform: translate(-50%,-50%);
-
-  width: 108px;
-  height: 108px;
-
-  display: grid;
-  place-items: center;
-
-  border-radius: 50%;
-  border: 3px solid #342318;
-
-  background:
-    radial-gradient(
-      circle,
-      #e7bb7c,
-      #a66c35 64%,
-      #4d2e1b
-    );
-
-  color: #17100b;
-  font-size: 18px;
-  font-weight: 900;
-}
-
-.vinyl-label::after {
-  content: "";
-  position: absolute;
-  width: 9px;
-  height: 9px;
-  border-radius: 50%;
-  background: #eee;
-  border: 2px solid #333;
-}
-
-.tonearm {
-  position: absolute;
-  width: 145px;
-  height: 9px;
-  right: -15px;
-  top: 63px;
-
-  transform: rotate(38deg);
-  transform-origin: right center;
-
-  border-radius: 10px;
-
-  background:
-    linear-gradient(
-      #f0e1c9,
-      #928474,
-      #3d3935
-    );
-
-  box-shadow: 0 4px 10px #000;
-}
-
-.tonearm::before {
-  content: "";
-  position: absolute;
-  left: -10px;
-  top: -6px;
-  width: 30px;
-  height: 22px;
-  border-radius: 4px;
-  background: #d1bca0;
-}
-
-.about-content {
-  display: flex;
-  flex-direction: column;
-  justify-content: center;
-  padding: 48px 9%;
-}
-
-.about-content h2 {
-  margin: 0 0 20px;
-  font-size: 42px;
-}
-
-.about-content p {
-  max-width: 540px;
-  margin: 0 0 18px;
-
-  color: #c7c7ca;
-  font-size: 17px;
-  line-height: 1.85;
-}
-
-.about-content .gold-button {
-  align-self: flex-start;
-  margin-top: 13px;
-}
-
-/* ========================================
-   İLETİŞİM
-   ======================================== */
-
-.contact {
-  padding: 65px 20px 75px;
-  text-align: center;
-
-  background:
-    radial-gradient(
-      ellipse at 50% 100%,
-      rgba(215,164,86,.08),
-      transparent 65%
-    );
-}
-
-.contact h2 {
-  margin: 0 0 16px;
-  font-size: 37px;
-}
-
-.contact p {
-  margin: 0 0 25px;
-  color: var(--muted);
-  line-height: 1.7;
-}
-
-/* ========================================
-   FOOTER
-   ======================================== */
-
-footer {
-  padding: 35px 5% 25px;
-  background: #06080a;
-  border-top: 1px solid rgba(255,255,255,.12);
-}
-
-.footer-main {
-  display: flex;
-  align-items: center;
-  justify-content: space-between;
-  gap: 30px;
-}
-
-.footer-brand {
-  font-size: 37px;
-  font-weight: 900;
-  letter-spacing: -2px;
-}
-
-.footer-brand sup {
-  color: var(--gold);
-  font-size: 12px;
-  vertical-align: top;
-}
-
-.footer-socials {
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  gap: 25px;
-  flex-wrap: wrap;
-}
-
-.footer-socials a {
-  font-size: 14px;
-  color: #ddd;
-  transition: color .2s;
-}
-
-.footer-socials a:hover {
-  color: var(--gold);
-}
-
-.copyright {
-  margin-top: 35px;
-  text-align: center;
-  color: #999;
-  font-size: 13px;
-}
-
-/* ========================================
-   TABLET
-   ======================================== */
-
-@media (max-width: 1000px) {
-
-  .desktop-nav {
-    gap: 23px;
-  }
-
-  .songs-grid {
-    gap: 12px;
-  }
-
-  .song-name {
-    font-size: 14px;
-  }
-
-}
-
-/* ========================================
-   TELEFON — ÖZEL YERLEŞİM
-   ======================================== */
-
-@media (max-width: 850px) {
-
-  .site-header {
-    height: 66px;
-    padding: 0 19px;
-  }
-
-  .brand {
-    font-size: 31px;
-  }
-
-  .desktop-nav {
-    display: none;
-  }
-
-  .menu-button {
-    display: block;
-  }
-
-  .mobile-nav {
-    position: absolute;
-    top: 66px;
-    left: 0;
-    right: 0;
-
-    padding: 10px 24px 20px;
-
-    flex-direction: column;
-    background: rgba(5,7,10,.98);
-    border-bottom: 1px solid var(--border);
-  }
-
-  .mobile-nav.open {
-    display: flex;
-  }
-
-  .mobile-nav a {
-    padding: 15px 0;
-    border-bottom: 1px solid rgba(255,255,255,.08);
-  }
-
-  /* ANA EKRAN */
-
-  .hero {
-    min-height: 0;
-    padding: 36px 12px 44px;
-  }
-
-  .hero-photo {
-    background-position: center;
-  }
-
-  .headphone-photo {
-    width: 210px;
-    left: -65px;
-    bottom: 31%;
-    opacity: .4;
-  }
-
-  .artist-label {
-    font-size: 11px;
-    letter-spacing: 5px;
-    margin-bottom: 14px;
-  }
-
-  .hero-title {
-    font-size: clamp(67px,14vw,104px);
-    letter-spacing: -5px;
-  }
-
-  .artist-roles {
-    margin-top: 12px;
-    font-size: 14px;
-  }
-
-  .gold-line {
-    width: 185px;
-    margin: 24px auto 24px;
-  }
-
-  .slogan {
-    font-size: clamp(25px,5.8vw,36px);
-    margin-bottom: 29px;
-  }
-
-  /* SOSYAL KUTULAR:
-     TELEFONDA KÜÇÜK VE YUKARIDA */
-
-  .platforms {
-    grid-template-columns: repeat(3,minmax(0,1fr));
-    gap: 8px;
-  }
-
-  .platform {
-    min-height: 78px;
-    padding: 9px 3px;
-    gap: 7px;
-    border-radius: 12px;
-  }
-
-  .platform svg {
-    width: 27px;
-    height: 27px;
-  }
-
-  .platform-name {
-    font-size: 11px;
-  }
-
-  /* ESERLER */
-
-  .music-section {
-    padding: 37px 15px 58px;
-  }
-
-  .section-heading {
-    gap: 12px;
-    margin-bottom: 29px;
-  }
-
-  .section-heading h2 {
-    font-size: 35px;
-  }
-
-  .section-heading::before,
-  .section-heading::after {
-    width: 35px;
-  }
-
-  .songs-grid {
-    grid-template-columns: repeat(2,minmax(0,1fr));
-    gap: 23px 13px;
-  }
-
-  .song-card:last-child {
-    grid-column: 1 / -1;
-    width: calc(50% - 7px);
-    justify-self: center;
-  }
-
-  .cover-title {
-    font-size: 20px;
-  }
-
-  .play-icon {
-    width: 35px;
-    height: 35px;
-    font-size: 15px;
-  }
-
-  .song-name {
-    font-size: 15px;
-  }
-
-  .all-songs {
-    margin-top: 32px;
-  }
-
-  /* HAKKIMDA */
-
-  .about {
-    grid-template-columns: 1fr;
-  }
-
-  .record-area {
-    min-height: 340px;
-  }
-
-  .turntable {
-    transform: scale(.84);
-  }
-
-  .about-content {
-    padding: 43px 25px 55px;
-  }
-
-  .about-content h2 {
-    font-size: 35px;
-  }
-
-  .about-content p {
-    font-size: 16px;
-  }
-
-  /* FOOTER */
-
-  .footer-main {
-    flex-direction: column;
-    text-align: center;
-  }
-
-  .footer-socials {
-    gap: 17px;
-  }
-
-}
-
-/* ========================================
-   ÇOK KÜÇÜK TELEFON
-   ======================================== */
-
-@media (max-width: 360px) {
-
-  .hero-title {
-    font-size: 65px;
-  }
-
-  .artist-roles {
-    font-size: 12px;
-  }
-
-  .platform-name {
-    font-size: 10px;
-  }
-
-  .slogan {
-    font-size: 24px;
-  }
-
-  .turntable {
-    transform: scale(.74);
-  }
-
-}
-
-/* ========================================
-   HAREKET HASSASİYETİ
-   ======================================== */
-
-@media (prefers-reduced-motion: reduce) {
-
-  *,
-  *::before,
-  *::after {
-    animation: none !important;
-    scroll-behavior: auto !important;
-  }
-
-}
-</style>
-</head>
-
-<body>
-
-<!-- =====================================
-     ÜST MENÜ
-     ===================================== -->
-
-<header class="site-header">
-
-  <a href="#home" class="brand" aria-label="MurKa ana sayfa">
-    MurKa<sup>™</sup>
-  </a>
-
-  <nav class="desktop-nav" aria-label="Ana menü">
-    <a href="#home">Ana Sayfa</a>
-    <a href="#songs">Eserlerim</a>
-    <a href="#about">Hakkımda</a>
-    <a href="#contact">İletişim</a>
-  </nav>
-
-  <button
-    class="menu-button"
-    id="menuButton"
-    type="button"
-    aria-label="Menüyü aç"
-    aria-expanded="false"
-    aria-controls="mobileNavigation"
-    onclick="toggleMenu()">
-    <span></span>
-    <span></span>
-    <span></span>
-  </button>
-
-  <nav
-    class="mobile-nav"
-    id="mobileNavigation"
-    aria-label="Telefon menüsü">
-
-    <a href="#home" onclick="closeMenu()">Ana Sayfa</a>
-    <a href="#songs" onclick="closeMenu()">Eserlerim</a>
-    <a href="#about" onclick="closeMenu()">Hakkımda</a>
-    <a href="#contact" onclick="closeMenu()">İletişim</a>
-
-  </nav>
-
-</header>
-
-<main>
-
-<!-- =====================================
-     ANA SAYFA
-     ===================================== -->
-
-<section class="hero" id="home">
-
-  <div class="hero-photo" aria-hidden="true"></div>
-  <div class="headphone-photo" aria-hidden="true"></div>
-  <div class="hero-overlay" aria-hidden="true"></div>
-  <div class="hero-glow" aria-hidden="true"></div>
-
-  <p class="artist-label">
-    RESMÎ SANATÇI
-  </p>
-
-  <h1 class="hero-title">
-    MurKa<sup>™</sup>
-  </h1>
-
-  <p class="artist-roles">
-    Söz Yazarı • Besteci • Prodüktör
-  </p>
-
-  <div class="gold-line" aria-hidden="true"></div>
-
-  <p class="slogan">
-    “Söz biter, eser kalır.”
-  </p>
-
-  <!-- SOSYAL MEDYA BAĞLANTILARI -->
-
-  <div class="platforms">
-
-    <!-- YOUTUBE -->
-
-    <a
-      class="platform"
-      href="https://www.youtube.com/@murka_music"
-      target="_blank"
-      rel="noopener noreferrer"
-      aria-label="MurKa YouTube">
-
-      <svg class="youtube" viewBox="0 0 24 24" fill="currentColor" aria-hidden="true">
-        <path d="M23.5 6.2a3 3 0 0 0-2.1-2.1C19.5 3.6 12 3.6 12 3.6s-7.5 0-9.4.5A3 3 0 0 0 .5 6.2 31 31 0 0 0 0 12a31 31 0 0 0 .5 5.8 3 3 0 0 0 2.1 2.1c1.9.5 9.4.5 9.4.5s7.5 0 9.4-.5a3 3 0 0 0 2.1-2.1A31 31 0 0 0 24 12a31 31 0 0 0-.5-5.8ZM9.6 15.5v-7l6.3 3.5-6.3 3.5Z"/>
-      </svg>
-
-      <span class="platform-name">YouTube</span>
-
-    </a>
-
-    <!-- SPOTIFY -->
-
-    <a
-      class="platform"
-      href="https://open.spotify.com/search/MurKa"
-      target="_blank"
-      rel="noopener noreferrer"
-      aria-label="MurKa Spotify">
-
-      <svg class="spotify" viewBox="0 0 24 24" fill="currentColor" aria-hidden="true">
-        <path d="M12 0a12 12 0 1 0 0 24 12 12 0 0 0 0-24Zm5.5 17.3a.75.75 0 0 1-1 .25c-2.8-1.7-6.3-2.1-10.4-1.15a.75.75 0 0 1-.35-1.46c4.5-1 8.4-.56 11.5 1.34.36.22.47.68.25 1.02Zm1.4-3.1a.94.94 0 0 1-1.3.31c-3.2-1.97-8.1-2.54-11.9-1.39a.94.94 0 1 1-.54-1.8c4.35-1.32 9.8-.68 13.43 1.56.44.27.58.85.31 1.3Zm.12-3.23C15.2 8.7 8.9 8.5 5.2 9.62a1.13 1.13 0 0 1-.65-2.16c4.3-1.3 11.3-1.05 15.6 1.5a1.13 1.13 0 0 1-1.13 2.01Z"/>
-      </svg>
-
-      <span class="platform-name">Spotify</span>
-
-    </a>
-
-    <!-- APPLE MUSIC -->
-
-    <a
-      class="platform"
-      href="https://music.apple.com/de/search?term=MurKa"
-      target="_blank"
-      rel="noopener noreferrer"
-      aria-label="MurKa Apple Music">
-
-      <svg class="apple" viewBox="0 0 24 24" fill="currentColor" aria-hidden="true">
-        <path d="M17.05 12.54c.02 2.3 2.02 3.06 2.04 3.07-.02.05-.32 1.1-1.05 2.18-.63.93-1.28 1.85-2.3 1.87-1 .02-1.32-.6-2.47-.6-1.15 0-1.5.58-2.45.62-1 .04-1.76-1-2.4-1.93-1.31-1.9-2.3-5.38-.96-7.72a3.7 3.7 0 0 1 3.12-1.9c.97-.02 1.89.66 2.49.66.59 0 1.7-.81 2.86-.69.49.02 1.87.2 2.75 1.5-.07.04-1.64.95-1.63 2.94ZM15.15 6.9a3.8 3.8 0 0 0 .88-2.76 3.8 3.8 0 0 0-2.48 1.31 3.6 3.6 0 0 0-.9 2.68 3.18 3.18 0 0 0 2.5-1.23Z"/>
-      </svg>
-
-      <span class="platform-name">Apple Music</span>
-
-    </a>
-
-    <!-- TIKTOK -->
-
-    <a
-      class="platform"
-      href="https://www.tiktok.com/@murka.music"
-      target="_blank"
-      rel="noopener noreferrer"
-      aria-label="MurKa TikTok">
-
-      <svg class="tiktok" viewBox="0 0 24 24" fill="currentColor" aria-hidden="true">
-        <path d="M16.6 1h-3.5v14.4a3.2 3.2 0 1 1-2.8-3.17V8.7a6.7 6.7 0 1 0 6.3 6.7V8.1a8.5 8.5 0 0 0 5 1.6V6.2a5.1 5.1 0 0 1-5-5.2Z"/>
-      </svg>
-
-      <span class="platform-name">TikTok</span>
-
-    </a>
-
-    <!-- INSTAGRAM -->
-
-    <a
-      class="platform"
-      href="https://www.instagram.com/murka.music/"
-      target="_blank"
-      rel="noopener noreferrer"
-      aria-label="MurKa Instagram">
-
-      <svg class="instagram" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true">
-        <rect x="2" y="2" width="20" height="20" rx="6"/>
-        <circle cx="12" cy="12" r="4"/>
-        <circle cx="18" cy="6" r="1" fill="currentColor" stroke="none"/>
-      </svg>
-
-      <span class="platform-name">Instagram</span>
-
-    </a>
-
-    <!-- AMAZON MUSIC -->
-
-    <a
-      class="platform"
-      href="https://music.amazon.de/artists/B082J87KZ8/murka"
-      target="_blank"
-      rel="noopener noreferrer"
-      aria-label="MurKa Amazon Music">
-
-      <svg class="amazon" viewBox="0 0 24 24" fill="currentColor" aria-hidden="true">
-        <text x="2" y="11" font-size="9" font-weight="bold">music</text>
-        <path d="M4 15Q12 21 20 14" stroke="currentColor" stroke-width="1.8" fill="none"/>
-        <path d="M17 13L21 13L20 17" stroke="currentColor" stroke-width="1.4" fill="none"/>
-      </svg>
-
-      <span class="platform-name">Amazon Music</span>
-
-    </a>
-
-  </div>
-
-</section>
-
-<!-- =====================================
-     ESERLERİM
-     ===================================== -->
-
-<section class="music-section" id="songs">
-
-  <div class="section-heading">
-    <h2>Eserlerim</h2>
-  </div>
-
-  <div class="songs-grid">
-
-    <!-- BİR MESELE -->
-
-    <a
-      class="song-card"
-      href="https://www.youtube.com/results?search_query=MurKa+Bir+Mesele"
-      target="_blank"
-      rel="noopener noreferrer">
-
-      <div class="song-cover">
-
-        <img
-          src="https://images.unsplash.com/photo-1511920170033-f8396924c348?auto=format&fit=crop&w=700&q=85"
-          alt="Bir Mesele eser görseli"
-          loading="lazy">
-
-        <span class="cover-title">Bir Mesele</span>
-        <span class="play-icon" aria-hidden="true">▶</span>
-
-      </div>
-
-      <div class="song-name">Bir Mesele</div>
-
-    </a>
-
-    <!-- EYLÜLCE -->
-
-    <a
-      class="song-card"
-      href="https://www.youtube.com/results?search_query=MurKa+Eylulce"
-      target="_blank"
-      rel="noopener noreferrer">
-
-      <div class="song-cover">
-
-        <img
-          src="https://images.unsplash.com/photo-1544787219-7f47ccb76574?auto=format&fit=crop&w=700&q=85"
-          alt="Eylülce eser görseli"
-          loading="lazy">
-
-        <span class="cover-title">Eylülce</span>
-        <span class="play-icon" aria-hidden="true">▶</span>
-
-      </div>
-
-      <div class="song-name">Eylülce</div>
-
-    </a>
-
-    <!-- AKSİ GÖNÜL -->
-
-    <a
-      class="song-card"
-      href="https://www.youtube.com/results?search_query=MurKa+Aksi+Gonul"
-      target="_blank"
-      rel="noopener noreferrer">
-
-      <div class="song-cover">
-
-        <img
-          src="https://images.unsplash.com/photo-1518895949257-7621c3c786d7?auto=format&fit=crop&w=700&q=85"
-          alt="Aksi Gönül eser görseli"
-          loading="lazy">
-
-        <span class="cover-title">Aksi Gönül</span>
-        <span class="play-icon" aria-hidden="true">▶</span>
-
-      </div>
-
-      <div class="song-name">Aksi Gönül</div>
-
-    </a>
-
-    <!-- CAN YANIM -->
-
-    <a
-      class="song-card"
-      href="https://www.youtube.com/results?search_query=MurKa+Can+Yanim"
-      target="_blank"
-      rel="noopener noreferrer">
-
-      <div class="song-cover">
-
-        <img
-          src="https://images.unsplash.com/photo-1470252649378-9c29740c9fa8?auto=format&fit=crop&w=700&q=85"
-          alt="Can Yanım eser görseli"
-          loading="lazy">
-
-        <span class="cover-title">Can Yanım</span>
-        <span class="play-icon" aria-hidden="true">▶</span>
-
-      </div>
-
-      <div class="song-name">Can Yanım</div>
-
-    </a>
-
-    <!-- FERMANIM VAR -->
-
-    <a
-      class="song-card"
-      href="https://www.youtube.com/results?search_query=MurKa+Fermanim+Var"
-      target="_blank"
-      rel="noopener noreferrer">
-
-      <div class="song-cover">
-
-        <img
-          src="https://images.unsplash.com/photo-1570939274717-7eda259b50ed?auto=format&fit=crop&w=700&q=85"
-          alt="Fermanım Var eser görseli"
-          loading="lazy">
-
-        <span class="cover-title">Fermanım Var</span>
-        <span class="play-icon" aria-hidden="true">▶</span>
-
-      </div>
-
-      <div class="song-name">Fermanım Var</div>
-
-    </a>
-
-  </div>
-
-  <div class="all-songs">
-
-    <a
-      class="gold-button"
-      href="https://www.youtube.com/@murka_music"
-      target="_blank"
-      rel="noopener noreferrer">
-
-      ♫ Tüm Eserlerim &nbsp; →
-
-    </a>
-
-  </div>
-
-</section>
-
-<!-- =====================================
-     HAKKIMDA
-     ===================================== -->
-
-<section class="about" id="about">
-
-  <div class="record-area">
-
-    <div class="turntable" aria-label="Dönen plak animasyonu">
-
-      <div class="vinyl">
-
-        <div class="vinyl-label">
-          MurKa™
-        </div>
-
-      </div>
-
-      <div class="tonearm"></div>
-
-    </div>
-
-  </div>
-
-  <div class="about-content">
-
-    <h2>Hakkımda</h2>
-
-    <p>
-      MurKa™, söz yazarı, besteci ve prodüktör olarak
-      kendi eserlerini üreten bağımsız bir müzik sanatçısıdır.
-    </p>
-
-    <p>
-      Türkçe müziğin duygusunu modern müzikal
-      yaklaşımlarla harmanlayarak özgün eserler ortaya koyar.
-    </p>
-
-    <a class="gold-button" href="#contact">
-      Daha Fazla &nbsp; →
-    </a>
-
-  </div>
-
-</section>
-
-<!-- =====================================
-     İLETİŞİM
-     ===================================== -->
-
-<section class="contact" id="contact">
-
-  <h2>İletişim</h2>
-
-  <p>
-    MurKa™ ile sosyal medya üzerinden iletişime geçebilirsiniz.
-  </p>
-
-  <a
-    class="gold-button"
-    href="https://www.instagram.com/murka.music/"
-    target="_blank"
-    rel="noopener noreferrer">
-
-    Instagram'dan İletişime Geç &nbsp; →
-
-  </a>
-
-</section>
-
-</main>
-
-<!-- =====================================
-     ALT BÖLÜM
-     ===================================== -->
-
-<footer>
-
-  <div class="footer-main">
-
-    <a href="#home" class="footer-brand">
-      MurKa<sup>™</sup>
-    </a>
-
-    <div class="footer-socials">
-
-      <a href="https://www.youtube.com/@murka_music" target="_blank" rel="noopener noreferrer">YouTube</a>
-
-      <a href="https://open.spotify.com/search/MurKa" target="_blank" rel="noopener noreferrer">Spotify</a>
-
-      <a href="https://music.apple.com/de/search?term=MurKa" target="_blank" rel="noopener noreferrer">Apple Music</a>
-
-      <a href="https://www.tiktok.com/@murka.music" target="_blank" rel="noopener noreferrer">TikTok</a>
-
-      <a href="https://www.instagram.com/murka.music/" target="_blank" rel="noopener noreferrer">Instagram</a>
-
-      <a href="https://music.amazon.de/artists/B082J87KZ8/murka" target="_blank" rel="noopener noreferrer">Amazon Music</a>
-
-    </div>
-
-  </div>
-
-  <div class="copyright">
-    © 2026 MurKa™. Tüm hakları saklıdır.
-  </div>
-
-</footer>
-
-<!-- =====================================
-     JAVASCRIPT
-     ===================================== -->
-
-<script>
-
-function toggleMenu() {
-
-  const nav = document.getElementById("mobileNavigation");
-  const button = document.getElementById("menuButton");
-
-  const isOpen = nav.classList.toggle("open");
-
-  button.setAttribute("aria-expanded", String(isOpen));
-
-  button.setAttribute(
-    "aria-label",
-    isOpen ? "Menüyü kapat" : "Menüyü aç"
-  );
-
-}
-
-function closeMenu() {
-
-  const nav = document.getElementById("mobileNavigation");
-  const button = document.getElementById("menuButton");
-
-  nav.classList.remove("open");
-
-  button.setAttribute("aria-expanded", "false");
-  button.setAttribute("aria-label", "Menüyü aç");
-
-}
-
-document.addEventListener("keydown", function(event) {
-
-  if (event.key === "Escape") {
-    closeMenu();
-  }
-
-});
-
-</script>
-
-</body>
-  </html>
+You are a senior frontend engineer specializing in pixel-accurate website reconstruction from screenshots.
+
+YOUR MAIN OBJECTIVE
+
+Recreate the uploaded reference image as faithfully as technically possible.
+
+The uploaded image is the definitive visual specification. Do not redesign it, reinterpret it, simplify it, or substitute a generic music website template.
+
+Study the entire reference image carefully before writing code. Reproduce its visual hierarchy, proportions, image placement, typography, spacing, lighting, colors, borders, and section transitions.
+
+IMPORTANT: The reference image shows a desktop website. Reproduce that layout accurately on desktop, then adapt it intelligently for mobile without losing the original design.
+
+1. TECHNICAL REQUIREMENTS
+
+Create a complete, functional, responsive website using:
+
+- HTML5
+- CSS3
+- Vanilla JavaScript
+
+Deliver everything in ONE complete "index.html" file.
+
+All CSS must be inside "<style>" tags.
+
+All JavaScript must be inside "<script>" tags.
+
+The website must run directly on GitHub Pages without additional installation.
+
+Website domain: murkaofficial.com
+
+Do not use React, Next.js, Node.js, npm, or build tools.
+
+Do not provide fragments, demonstrations, or incomplete code.
+
+Do not replace important elements with empty placeholders.
+
+Every section must be implemented.
+
+The final output must begin with "<!DOCTYPE html>" and end with "</html>".
+
+2. EXACT DESIGN STRUCTURE
+
+Reproduce the sections in this order:
+
+1. Header
+2. Hero with studio background
+3. Social media platform buttons
+4. Eserlerim
+5. Hakkımda
+6. Footer
+
+Do not introduce additional sections that are absent from the reference image.
+
+HEADER
+
+Create a slim, premium black navigation bar.
+
+Place the white MurKa logo on the left with a small gold ™ symbol.
+
+Navigation:
+
+Ana Sayfa | Eserlerim | Hakkımda | İletişim
+
+The active navigation item has a thin gold underline.
+
+Include the hamburger menu shown on the right side of the reference image.
+
+On mobile, the hamburger opens a functional navigation menu.
+
+HERO BACKGROUND — CRITICAL
+
+The reference image contains a very specific photographic composition.
+
+LEFT: Large professional black over-ear headphones resting on a dark studio desk.
+
+RIGHT: Professional audio mixing console with visible faders, knobs, and realistic equipment details.
+
+CENTER: Dark, visually uncluttered space for the artist's name.
+
+Background appearance:
+
+- Photorealistic professional recording studio
+- Cinematic lighting
+- Deep black and charcoal tones
+- Subtle warm gold highlights
+- Soft blue reflections on the left
+- Realistic shadows and reflections
+- Premium music-production atmosphere
+
+ABSOLUTELY NO GUITARS OR GUITAR WALLS.
+
+Do not use a random recording studio stock photograph.
+
+Prefer extracting or recreating the background composition from the uploaded reference.
+
+If exact extraction is impossible, use the closest available photographic asset and explain the limitation separately.
+
+Do not use a flat gradient or cartoon illustration as a substitute for the photographic background.
+
+HERO TEXT
+
+Center the following elements precisely:
+
+RESMÎ SANATÇI
+
+MurKa™
+
+Söz Yazarı • Besteci • Prodüktör
+
+Add the thin glowing gold horizontal line visible in the reference.
+
+Below it:
+
+“Söz biter, eser kalır.”
+
+The artist's name must be large, bold, white, italic, and visually dominant.
+
+The ™ symbol must be small and gold.
+
+Use elegant, realistic typography with carefully adjusted letter spacing.
+
+All visible website text must be Turkish, except internationally recognized platform and brand names.
+
+SOCIAL MEDIA BUTTONS — CRITICAL
+
+Position the social platform cards directly below the hero slogan, as shown in the reference.
+
+Create six compact black cards with recognizable platform logos:
+
+YouTube | Spotify | Apple Music | TikTok | Instagram | Amazon Music
+
+Each card must have:
+
+- Correct platform logo
+- Appropriate brand colors
+- Thin subtle border
+- Dark translucent background
+- Small rounded corners
+- Compact dimensions
+- Smooth hover interaction
+- Functional clickable link
+
+DESKTOP: All six cards must appear in one horizontal row.
+
+MOBILE: Arrange the six cards in a compact responsive grid. Do not make them excessively large or tall.
+
+Platform links:
+
+YouTube:
+https://www.youtube.com/@murka_music
+
+TikTok:
+https://www.tiktok.com/@murka.music
+
+Instagram:
+https://www.instagram.com/murka.music/
+
+Amazon Music:
+https://music.amazon.de/artists/B082J87KZ8/murka
+
+Spotify and Apple Music must have easily configurable artist links. Do not invent profile URLs.
+
+ESERLERİM — FIVE MUSIC COVERS
+
+Place the heading Eserlerim in the center.
+
+Add thin decorative gold horizontal lines on both sides.
+
+Display five square music covers in the exact order shown in the reference:
+
+1. Bir Mesele
+
+A realistic Turkish tea glass on a dark wooden table, cinematic low-key lighting.
+
+2. Eylülce
+
+A traditional Turkish tea glass filled with red tea beside a rain-covered window.
+
+3. Aksi Gönül
+
+A realistic deep-red rose lying on a dark reflective surface.
+
+4. Can Yanım
+
+A solitary tree silhouetted against a dramatic purple-pink sunset.
+
+5. Fermanım Var
+
+A photorealistic Cappadocia landscape featuring fairy chimneys and hot-air balloons.
+
+For each cover:
+
+- Reproduce the photographic composition shown in the reference.
+- Add the song title in elegant white handwritten-style typography.
+- Place a small circular play icon in the bottom-right corner.
+- Display the song title again below the cover.
+- Add subtle hover effects.
+
+Do not use unrelated images.
+
+Do not substitute coffee cups for Turkish tea glasses.
+
+On desktop, show all five covers in one horizontal row.
+
+On mobile, create a balanced responsive arrangement with no horizontal overflow.
+
+Below the covers, create a centered gold-outline button:
+
+♫ Tüm Eserlerim →
+
+Link the button to:
+
+https://www.youtube.com/@murka_music
+
+HAKKIMDA — ANIMATED VINYL RECORD
+
+Create the two-column section shown in the reference.
+
+LEFT COLUMN:
+
+A large, realistic vintage record player with a black vinyl record and metallic tonearm.
+
+The vinyl record must rotate continuously and smoothly.
+
+Use CSS animation for the record rotation.
+
+The tonearm, turntable housing, and background must remain stationary.
+
+The record should show realistic grooves, reflections, and highlights.
+
+RIGHT COLUMN:
+
+Heading:
+
+Hakkımda
+
+Text:
+
+MurKa™, söz yazarı, besteci ve prodüktör olarak kendi eserlerini üreten bağımsız bir müzik sanatçısıdır.
+
+Türkçe müziğin duygusunu modern müzikal yaklaşımlarla harmanlayarak özgün eserler ortaya koyar.
+
+Add a gold-outline button:
+
+Daha Fazla →
+
+The text must remain legible and correctly aligned.
+
+FOOTER
+
+Reproduce the premium black footer from the reference.
+
+Left:
+
+MurKa™ logo.
+
+Center/right:
+
+Six recognizable social platform icons in a horizontal arrangement.
+
+Platforms:
+
+YouTube, Spotify, Apple Music, TikTok, Instagram, Amazon Music.
+
+Below:
+
+© 2026 MurKa™. Tüm hakları saklıdır.
+
+3. DESIGN QUALITY
+
+Use:
+
+- Premium black backgrounds
+- White text
+- Restrained gold accents
+- Cinematic photographic assets
+- Precise spacing
+- Elegant typography
+- Thin borders
+- Smooth micro-interactions
+- Realistic depth and shadows
+
+Do not use:
+
+- Generic music website templates
+- Guitar backgrounds
+- Cartoon artwork
+- Unrelated stock images
+- Oversized social buttons
+- Excessive gold or yellow
+- Unnecessary sections
+- Broken image URLs
+- English headings
+
+4. RESPONSIVE DESIGN
+
+The website must work correctly on:
+
+- Samsung Galaxy A55
+- Other Android smartphones
+- iPhones
+- Tablets
+- Desktop computers
+
+Use responsive CSS with appropriate breakpoints.
+
+Keep the original desktop design visually faithful to the uploaded reference.
+
+For mobile, carefully adapt spacing, typography, navigation, image crops, and card dimensions.
+
+Do not simply scale up the desktop elements.
+
+Avoid horizontal scrolling, overlapping text, clipped buttons, and distorted images.
+
+5. IMAGE ASSET REQUIREMENTS
+
+Image accuracy is essential.
+
+Do not assume that an arbitrary Unsplash image matches the reference.
+
+Use actual image assets that closely reproduce the uploaded design.
+
+If the system cannot generate or export matching photographic assets, state that limitation clearly.
+
+Do not claim pixel-perfect reproduction when the photographic assets differ.
+
+Use stable image paths and ensure every image loads.
+
+Do not embed the entire reference screenshot as the website background. The website must consist of separate, functional HTML elements.
+
+6. FUNCTIONAL REQUIREMENTS
+
+Ensure:
+
+- Navigation works.
+- Mobile menu opens and closes.
+- Social links are clickable.
+- Album play buttons link to the corresponding songs or configurable destinations.
+- Vinyl record animation works.
+- Hover effects work.
+- Layout adapts to different screen sizes.
+- All visible text is correctly encoded in UTF-8.
+- No JavaScript errors prevent rendering.
+- No missing closing HTML tags.
+- No broken CSS declarations.
+
+7. FINAL QUALITY CONTROL
+
+Before delivering the code, compare the rendered website with the uploaded reference image.
+
+Check specifically:
+
+- Header height and logo placement
+- Headphones on the left
+- Mixing console on the right
+- Hero typography and alignment
+- Gold glowing line
+- Slogan positioning
+- Six compact social cards
+- Five photographic music covers
+- Album cover spacing
+- Rotating vinyl record
+- About section proportions
+- Footer icon arrangement
+- Mobile responsiveness
+
+Correct any obvious differences before final delivery.
+
+8. REQUIRED OUTPUT
+
+Provide the COMPLETE, WORKING "index.html" SOURCE CODE.
+
+The code must be ready to copy directly into the GitHub repository for murkaofficial.com.
+
+Do not provide a ZIP file.
+
+Do not provide partial snippets.
+
+Do not provide a tutorial instead of the requested code.
+
+Do not shorten the implementation to save space.
+
+FINAL PRIORITY: The uploaded reference image must guide every design decision. Visual fidelity, working functionality, and complete code are mandatory.
